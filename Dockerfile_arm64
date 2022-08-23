@@ -1,0 +1,101 @@
+ADD file:f5aca23bd8c77beda7e17bb71fc4df34d91662b6179de87029f24d21b9e799ad in /
+CMD ["bash"]
+ARG DEBIAN_FRONTEND=noninteractive
+RUN |2 CUDA=10.2 DEBIAN_FRONTEND=noninteractive /bin/sh -c apt-get update && apt-get upgrade -y && apt-get install -qq -y --no-install-recommends bc bzip2 can-utils freeglut3-dev gstreamer1.0-alsa gstreamer1.0-libav gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-tools i2c-tools iw kbd language-pack-en-base libapt-inst2.0 libcanberra-gtk3-module libgles2 libglu1-mesa-dev libglvnd-dev libgtk-3-0 libpython2.7 libudev1 libvulkan1 libzmq5 mtd-utils parted pciutils python python-pexpect python3-distutils sox udev vulkan-utils wget wireless-tools wpasupplicant && rm -rf /var/lib/apt/lists/* && apt-get clean
+RUN |2 CUDA=10.2 DEBIAN_FRONTEND=noninteractive /bin/sh -c echo "/usr/lib/aarch64-linux-gnu/tegra" >> /etc/ld.so.conf.d/nvidia-tegra.conf && echo "/usr/lib/aarch64-linux-gnu/tegra-egl" >> /etc/ld.so.conf.d/nvidia-tegra.conf
+RUN |2 CUDA=10.2 DEBIAN_FRONTEND=noninteractive /bin/sh -c rm /usr/share/glvnd/egl_vendor.d/50_mesa.json
+RUN |2 CUDA=10.2 DEBIAN_FRONTEND=noninteractive /bin/sh -c mkdir -p /usr/share/glvnd/egl_vendor.d/ && echo '{ "file_format_version" : "1.0.0", "ICD" : {"library_path" : "libEGL_nvidia.so.0" }}' > /usr/share/glvnd/egl_vendor.d/10_nvidia.json
+RUN |2 CUDA=10.2 DEBIAN_FRONTEND=noninteractive /bin/sh -c mkdir -p /usr/share/egl/egl_external_platform.d/ && echo '{ "file_format_version" : "1.0.0", "ICD" : {"library_path" : "libnvidia-egl-wayland.so.1" }}' > /usr/share/egl/egl_external_platform.d/nvidia_wayland.json
+RUN |2 CUDA=10.2 DEBIAN_FRONTEND=noninteractive /bin/sh -c echo "/usr/local/cuda-$CUDA/targets/aarch64-linux/lib" >> /etc/ld.so.conf.d/nvidia.conf47B
+ARG CUDA=invalid
+COPY dir:77889d352851a5c5db4036e82af0cab8b30e143b0a3deceb218ccc11af3bd33f in /usr/local/cuda-$CUDA/bin
+COPY dir:70e967b24b1c29fb42a59ea28e2ac9c330141994124408a4b96ca83a3164bc1e in /usr/local/cuda-$CUDA/nvvm
+COPY dir:d0b0046f32a91625f6c07def17f21cb440a25c3b05519a3c24bf5bc252fbf21f in /usr/local/cuda-$CUDA/nvvmx
+COPY dir:153d9f95a33256ed143a695d33ed11e6dd39d5e0ade4a27067dffc35004eeaab in /usr/local/cuda-$CUDA/targets/aarch64-linux/include
+COPY dir:bc5f5015e731766f610e34237da1384239065b4e70251b6eb5e61224165e2611 in /usr/local/cuda-$CUDA/targets/aarch64-linux/lib/stubs
+COPY file:792d2fe7091a746ffcecd595a5eb7f339765fe4717a25094e9e89aada3fabb47 in /usr/local/cuda-$CUDA/targets/aarch64-linux/lib/
+COPY file:6710e3fe6c5249a5ed8b1e89b76f8f41f81a754f93ffbab331f6a36232ef49fc in /usr/local/cuda-$CUDA/targets/aarch64-linux/lib/
+RUN |2 CUDA=10.2 DEBIAN_FRONTEND=noninteractive /bin/sh -c ln -s /usr/local/cuda-$CUDA /usr/local/cuda && ln -s /usr/local/cuda-$CUDA/targets/aarch64-linux/include /usr/local/cuda/include && ln -s /usr/local/cuda-$CUDA/targets/aarch64-linux/lib /usr/local/cuda/lib64
+ENV PATH /usr/local/cuda-$CUDA/bin:/usr/local/cuda/bin:${PATH}
+ENV LD_LIBRARY_PATH /usr/local/cuda-$CUDA/targets/aarch64-linux/lib:${LD_LIBRARY_PATH}
+RUN |2 CUDA=10.2 DEBIAN_FRONTEND=noninteractive /bin/sh -c ldconfig
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES all
+ENV DEBIAN_FRONTEND=noninteractive
+RUN /bin/sh -c apt-get update && apt-get install -y --no-install-recommends python3-pip python3-dev libopenblas-dev libopenmpi2 openmpi-bin openmpi-common gfortran && rm -rf /var/lib/apt/lists/* && apt-get clean
+RUN /bin/sh -c pip3 install --no-cache-dir setuptools Cython wheel
+RUN /bin/sh -c pip3 install --no-cache-dir --verbose numpy
+ARG PYTORCH_URL=https://nvidia.box.com/shared/static/lufbgr3xu2uha40cs9ryq1zn4kxsnogl.whl
+ARG PYTORCH_WHL=torch-1.2.0-cp36-cp36m-linux_aarch64.whl
+RUN |2 PYTORCH_URL=https://nvidia.box.com/shared/static/h1z9sw4bb1ybi0rm3tu8qdj8hs05ljbm.whl PYTORCH_WHL=torch-1.9.0-cp36-cp36m-linux_aarch64.whl /bin/sh -c wget --quiet --show-progress --progress=bar:force:noscroll --no-check-certificate ${PYTORCH_URL} -O ${PYTORCH_WHL} && pip3 install --no-cache-dir --verbose ${PYTORCH_WHL} && rm ${PYTORCH_WHL}
+ARG TORCHVISION_VERSION=v0.4.0
+ARG PILLOW_VERSION=pillow<7
+ARG TORCH_CUDA_ARCH_LIST=5.3;6.2;7.2
+RUN |5 PILLOW_VERSION=pillow PYTORCH_URL=https://nvidia.box.com/shared/static/h1z9sw4bb1ybi0rm3tu8qdj8hs05ljbm.whl PYTORCH_WHL=torch-1.9.0-cp36-cp36m-linux_aarch64.whl TORCHVISION_VERSION=v0.10.0 TORCH_CUDA_ARCH_LIST=5.3;6.2;7.2 /bin/sh -c printenv && echo "torchvision version = $TORCHVISION_VERSION" && echo "pillow version = $PILLOW_VERSION" && echo "TORCH_CUDA_ARCH_LIST = $TORCH_CUDA_ARCH_LIST"118kB
+RUN |5 PILLOW_VERSION=pillow PYTORCH_URL=https://nvidia.box.com/shared/static/h1z9sw4bb1ybi0rm3tu8qdj8hs05ljbm.whl PYTORCH_WHL=torch-1.9.0-cp36-cp36m-linux_aarch64.whl TORCHVISION_VERSION=v0.10.0 TORCH_CUDA_ARCH_LIST=5.3;6.2;7.2 /bin/sh -c apt-get update && apt-get install -y --no-install-recommends git build-essential libjpeg-dev zlib1g-dev && rm -rf /var/lib/apt/lists/* && apt-get clean
+RUN |5 PILLOW_VERSION=pillow PYTORCH_URL=https://nvidia.box.com/shared/static/h1z9sw4bb1ybi0rm3tu8qdj8hs05ljbm.whl PYTORCH_WHL=torch-1.9.0-cp36-cp36m-linux_aarch64.whl TORCHVISION_VERSION=v0.10.0 TORCH_CUDA_ARCH_LIST=5.3;6.2;7.2 /bin/sh -c git clone -b ${TORCHVISION_VERSION} https://github.com/pytorch/vision torchvision && cd torchvision && python3 setup.py install && cd ../ && rm -rf torchvision && pip3 install --no-cache-dir "${PILLOW_VERSION}"
+ARG TORCHAUDIO_VERSION
+RUN |6 PILLOW_VERSION=pillow PYTORCH_URL=https://nvidia.box.com/shared/static/h1z9sw4bb1ybi0rm3tu8qdj8hs05ljbm.whl PYTORCH_WHL=torch-1.9.0-cp36-cp36m-linux_aarch64.whl TORCHAUDIO_VERSION=v0.9.0 TORCHVISION_VERSION=v0.10.0 TORCH_CUDA_ARCH_LIST=5.3;6.2;7.2 /bin/sh -c apt-get update && apt-get install -y --no-install-recommends cmake sox libsox-dev libsox-fmt-all && rm -rf /var/lib/apt/lists/* && apt-get clean
+RUN |6 PILLOW_VERSION=pillow PYTORCH_URL=https://nvidia.box.com/shared/static/h1z9sw4bb1ybi0rm3tu8qdj8hs05ljbm.whl PYTORCH_WHL=torch-1.9.0-cp36-cp36m-linux_aarch64.whl TORCHAUDIO_VERSION=v0.9.0 TORCHVISION_VERSION=v0.10.0 TORCH_CUDA_ARCH_LIST=5.3;6.2;7.2 /bin/sh -c pip3 install --no-cache-dir scikit-build && pip3 install --no-cache-dir ninja
+RUN |6 PILLOW_VERSION=pillow PYTORCH_URL=https://nvidia.box.com/shared/static/h1z9sw4bb1ybi0rm3tu8qdj8hs05ljbm.whl PYTORCH_WHL=torch-1.9.0-cp36-cp36m-linux_aarch64.whl TORCHAUDIO_VERSION=v0.9.0 TORCHVISION_VERSION=v0.10.0 TORCH_CUDA_ARCH_LIST=5.3;6.2;7.2 /bin/sh -c git clone --recursive -b ${TORCHAUDIO_VERSION} https://github.com/pytorch/audio torchaudio && cd torchaudio && python3 setup.py install && cd ../ && rm -rf torchaudio
+ENV PATH=/usr/local/cuda/bin:/usr/local/cuda-10.2/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda-10.2/targets/aarch64-linux/lib:
+RUN |6 PILLOW_VERSION=pillow PYTORCH_URL=https://nvidia.box.com/shared/static/h1z9sw4bb1ybi0rm3tu8qdj8hs05ljbm.whl PYTORCH_WHL=torch-1.9.0-cp36-cp36m-linux_aarch64.whl TORCHAUDIO_VERSION=v0.9.0 TORCHVISION_VERSION=v0.10.0 TORCH_CUDA_ARCH_LIST=5.3;6.2;7.2 /bin/sh -c echo "$PATH" && echo "$LD_LIBRARY_PATH"
+RUN |6 PILLOW_VERSION=pillow PYTORCH_URL=https://nvidia.box.com/shared/static/h1z9sw4bb1ybi0rm3tu8qdj8hs05ljbm.whl PYTORCH_WHL=torch-1.9.0-cp36-cp36m-linux_aarch64.whl TORCHAUDIO_VERSION=v0.9.0 TORCHVISION_VERSION=v0.10.0 TORCH_CUDA_ARCH_LIST=5.3;6.2;7.2 /bin/sh -c pip3 install --no-cache-dir --verbose pycuda six
+ENV DEBIAN_FRONTEND=noninteractive
+ENV SHELL=/bin/bash
+WORKDIR /jetson-inference
+RUN /bin/sh -c apt-get update && apt-get install -y --no-install-recommends cmake nano && rm -rf /var/lib/apt/lists/*
+RUN /bin/sh -c pip3 install --verbose --upgrade Cython && pip3 install --verbose boto3 pandas
+RUN /bin/sh -c rm /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python && ln -s /usr/bin/pip3 /usr/bin/pip
+ARG OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz
+ARG OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz
+RUN |2 OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz /bin/sh -c apt-get purge -y '*opencv*' || echo "previous OpenCV installation not found" && mkdir opencv && cd opencv && wget --quiet --show-progress --progress=bar:force:noscroll --no-check-certificate ${OPENCV_URL} -O ${OPENCV_DEB} && tar -xzvf ${OPENCV_DEB} && dpkg -i --force-depends *.deb && apt-get update && apt-get install -y -f --no-install-recommends && dpkg -i *.deb && rm -rf /var/lib/apt/lists/* && apt-get clean && cd ../ && rm -rf opencv && cp -r /usr/include/opencv4 /usr/local/include/opencv4 && cp -r /usr/lib/python3.6/dist-packages/cv2 /usr/local/lib/python3.6/dist-packages/cv2
+COPY dir:7ff60a6f1c8eb297dc262eed5eb7315618ce1841ad5aee7d879c34c77063cb0e in c
+COPY dir:07205de028b4e6bb11c8d7e004917ffba3ce26327c8594a7ff7de037954b9ef8 in calibration
+COPY dir:189d8d4f2e6d3f5c16fc216747f7d0d54968ca5b26c0a26859a0496c73375cd2 in examples
+COPY dir:68f4a34f9eb247279915c119135b5b5b37e371198eea0bc3a1b00e3a36af2013 in plugins
+COPY dir:41a16f416e051cf02f26bdd062285a8ae260699054b1513f4c5f9853ec2ab01c in python
+COPY dir:7d62cca4e60ee02da33c31933553e9975cdd99a150f58a00430bdc4af9a8b86b in tools
+COPY dir:c364b1c5a2b01d350228a7909aa41a7584db549f3d20af07355b161018795ba5 in utils
+COPY file:a034ac99065e0b5f492f20bad1771a8fe2e3f238d53d50983a084567023e7302 in CMakeLists.txt
+COPY file:c31f6d5c4b06c33f5b6de6d2a4d9d03be4cb268fec5611b798fee45147d3521e in CMakePreBuild.sh
+RUN |2 OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz /bin/sh -c mkdir docs && touch docs/CMakeLists.txt && sed -i 's/nvcaffe_parser/nvparsers/g' CMakeLists.txt && mkdir build && cd build && cmake ../ && make -j$(nproc) && make install && /bin/bash -O extglob -c "cd /jetson-inference/build; rm -rf -v !(aarch64|download-models.*)" && rm -rf /var/lib/apt/lists/*
+ARG ROS_PKG=ros_base
+ENV ROS_DISTRO=foxy
+ENV ROS_ROOT=/opt/ros/foxy
+ENV DEBIAN_FRONTEND=noninteractive
+ENV SHELL=/bin/bash
+SHELL [/bin/bash -c]
+WORKDIR /tmp
+RUN |1 ROS_PKG=ros_base /bin/bash -c locale-gen en_US en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV PYTHONIOENCODING=utf-8
+RUN |1 ROS_PKG=ros_base /bin/bash -c apt-get update && apt-get install -y --no-install-recommends curl wget gnupg2 lsb-release ca-certificates && rm -rf /var/lib/apt/lists/* && apt-get clean
+RUN |1 ROS_PKG=ros_base /bin/bash -c curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+RUN |1 ROS_PKG=ros_base /bin/bash -c echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
+RUN |1 ROS_PKG=ros_base /bin/bash -c apt-get update && apt-get install -y --no-install-recommends build-essential cmake git libbullet-dev libpython3-dev python3-colcon-common-extensions python3-flake8 python3-pip python3-numpy python3-pytest-cov python3-rosdep python3-setuptools python3-vcstool python3-rosinstall-generator libasio-dev libtinyxml2-dev libcunit1-dev libgazebo9-dev gazebo9 gazebo9-common gazebo9-plugin-base && rm -rf /var/lib/apt/lists/* && apt-get clean
+RUN |1 ROS_PKG=ros_base /bin/bash -c python3 -m pip install -U argcomplete flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes pytest-repeat pytest-rerunfailures pytest
+ARG OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz
+ARG OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz
+RUN |3 OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz ROS_PKG=ros_base /bin/bash -c apt-get purge -y '*opencv*' || echo "previous OpenCV installation not found" && mkdir opencv && cd opencv && wget --quiet --show-progress --progress=bar:force:noscroll --no-check-certificate ${OPENCV_URL} -O ${OPENCV_DEB} && tar -xzvf ${OPENCV_DEB} && dpkg -i --force-depends *.deb && apt-get update && apt-get install -y -f --no-install-recommends && dpkg -i *.deb && rm -rf /var/lib/apt/lists/* && apt-get clean && cd ../ && rm -rf opencv && cp -r /usr/include/opencv4 /usr/local/include/opencv4 && cp -r /usr/lib/python3.6/dist-packages/cv2 /usr/local/lib/python3.6/dist-packages/cv2
+RUN |3 OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz ROS_PKG=ros_base /bin/bash -c apt-get update && apt-get install -y --no-install-recommends software-properties-common apt-transport-https ca-certificates gnupg && rm -rf /var/lib/apt/lists/* && apt-get clean
+RUN |3 OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz ROS_PKG=ros_base /bin/bash -c wget -qO - https://apt.kitware.com/keys/kitware-archive-latest.asc | apt-key add - && apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main' && apt-get update && apt-get install -y --no-install-recommends --only-upgrade cmake && rm -rf /var/lib/apt/lists/* && apt-get clean
+RUN |3 OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz ROS_PKG=ros_base /bin/bash -c cmake --version
+RUN |3 OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz ROS_PKG=ros_base /bin/bash -c git clone --branch yaml-cpp-0.6.0 https://github.com/jbeder/yaml-cpp yaml-cpp-0.6 && cd yaml-cpp-0.6 && mkdir build && cd build && cmake -DBUILD_SHARED_LIBS=ON .. && make -j$(nproc) && cp libyaml-cpp.so.0.6.0 /usr/lib/aarch64-linux-gnu/ && ln -s /usr/lib/aarch64-linux-gnu/libyaml-cpp.so.0.6.0 /usr/lib/aarch64-linux-gnu/libyaml-cpp.so.0.6
+RUN |3 OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz ROS_PKG=ros_base /bin/bash -c mkdir -p ${ROS_ROOT}/src && cd ${ROS_ROOT} && rosinstall_generator --deps --rosdistro ${ROS_DISTRO} ${ROS_PKG} launch_xml launch_yaml launch_testing launch_testing_ament_cmake demo_nodes_cpp demo_nodes_py example_interfaces camera_calibration_parsers camera_info_manager cv_bridge v4l2_camera vision_opencv vision_msgs image_geometry image_pipeline image_transport compressed_image_transport compressed_depth_image_transport > ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && cat ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && vcs import src < ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && rm ${ROS_ROOT}/src/libyaml_vendor/CMakeLists.txt && wget --no-check-certificate https://raw.githubusercontent.com/ros2/libyaml_vendor/master/CMakeLists.txt -P ${ROS_ROOT}/src/libyaml_vendor/ && apt-get update && cd ${ROS_ROOT} && rosdep init && rosdep update && rosdep install -y--ignore-src--from-paths src --rosdistro ${ROS_DISTRO} --skip-keys "libopencv-dev libopencv-contrib-dev libopencv-imgproc-dev python-opencv python3-opencv" && rm -rf /var/lib/apt/lists/* && apt-get clean && colcon build --merge-install --cmake-args -DCMAKE_BUILD_TYPE=Release && rm -rf ${ROS_ROOT}/src && rm -rf ${ROS_ROOT}/logs && rm -rf ${ROS_ROOT}/build && rm ${ROS_ROOT}/*.rosinstall
+ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+COPY file:4c895c290ac0674ec38bcd195917cea6f39e208e805cebd611e7c4ef33e2f3e2 in /ros_entrypoint.sh195B
+RUN |3 OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz ROS_PKG=ros_base /bin/bash -c sed -i 's/ros_env_setup="\/opt\/ros\/$ROS_DISTRO\/setup.bash"/ros_env_setup="${ROS_ROOT}\/install\/setup.bash"/g' /ros_entrypoint.sh && cat /ros_entrypoint.sh
+RUN |3 OPENCV_DEB=OpenCV-4.5.0-aarch64.tar.gz OPENCV_URL=https://nvidia.box.com/shared/static/5v89u6g5rb62fpz4lh0rz531ajo2t5ef.gz ROS_PKG=ros_base /bin/bash -c echo 'source ${ROS_ROOT}/install/setup.bash' >> /root/.bashrc
+ENTRYPOINT ["/ros_entrypoint.sh"]
+CMD ["bash"]
+WORKDIR /
+/bin/bash -c apt update
+/bin/bash -c apt install -y python3-pip
+/bin/bash -c apt install -y python3-scipy python3-sklearn python3-numpy
+WORKDIR /tmp
+/bin/bash -c apt install -y iproute2
+COPY file:aad9803e33c2afe5287aacecd50644767f14a9a4730c8c57e1e59ac028c5fec3 in /etc/
+WORKDIR /home/work
+bash

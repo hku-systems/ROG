@@ -1,0 +1,8 @@
+ROG:
+world_size: 5
+threshold: 40
+bw control: outdoors
+epoch: 4
+E: [25, 1, 1, 1, 1]
+library_arg: --ROG-enable
+note: ROG 40

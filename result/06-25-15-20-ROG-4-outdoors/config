@@ -1,0 +1,8 @@
+ROG:
+world_size: 5
+threshold: 4
+bw control: outdoors
+epoch: 2
+E: [25, 1, 1, 1, 1]
+library_arg: --ROG-enable
+note: ROG-Bx1

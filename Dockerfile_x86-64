@@ -1,0 +1,58 @@
+ADD file:0d82cd095966e8ee78b593cb47a352eec842edb7bd9d9468e8a70154522447d1 in /
+CMD ["bash"]
+ENV NVARCH=x86_64
+ENV NVIDIA_REQUIRE_CUDA=cuda>=10.2 brand=tesla,driver>=396,driver<397 brand=tesla,driver>=410,driver<411 brand=tesla,driver>=418,driver<419 brand=tesla,driver>=440,driver<441
+ENV NV_CUDA_CUDART_VERSION=10.2.89-1
+ENV NV_ML_REPO_ENABLED=1
+ENV NV_ML_REPO_URL=https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64
+ARG TARGETARCH
+LABEL maintainer=NVIDIA CORPORATION <cudatools@nvidia.com>
+RUN |1 TARGETARCH=amd64 RUN apt-get update && apt-get install -y --no-install-recommends \
+    gnupg2 curl ca-certificates && \
+    curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/${NVARCH}/7fa2af80.pub | apt-key add - && \
+    echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/${NVARCH} /" > /etc/apt/sources.list.d/cuda.list && \
+    if [ ! -z ${NV_ML_REPO_ENABLED} ]; then echo "deb ${NV_ML_REPO_URL} /" > /etc/apt/sources.list.d/nvidia-ml.list; fi && \
+    apt-get purge --autoremove -y curl \
+    && rm -rf /var/lib/apt/lists/* # buildkit
+ENV CUDA_VERSION=10.2.89
+RUN |1 TARGETARCH=amd64 RUN apt-get update && apt-get install -y --no-install-recommends \
+    cuda-cudart-10-2=${NV_CUDA_CUDART_VERSION} \
+    cuda-compat-10-2 \
+    && ln -s cuda-10.2 /usr/local/cuda && \
+    rm -rf /var/lib/apt/lists/* # buildkit
+RUN |1 TARGETARCH=amd64 RUN echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf && \
+    echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf # buildkit
+ENV PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+COPY NGC-DL-CONTAINER-LICENSE / # buildkit
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
+ENV NV_CUDA_LIB_VERSION=10.2.89-1
+ENV NV_NVTX_VERSION=10.2.89-1
+ENV NV_LIBNPP_VERSION=10.2.89-1
+ENV NV_LIBCUSPARSE_VERSION=10.2.89-1
+ENV NV_LIBCUBLAS_PACKAGE_NAME=libcublas10
+ENV NV_LIBCUBLAS_VERSION=10.2.2.89-1
+ENV NV_LIBCUBLAS_PACKAGE=libcublas10=10.2.2.89-1
+ENV NV_LIBNCCL_PACKAGE_NAME=libnccl2
+ENV NV_LIBNCCL_PACKAGE_VERSION=2.11.4-1
+ENV NCCL_VERSION=2.11.4
+ENV NV_LIBNCCL_PACKAGE=libnccl2=2.11.4-1+cuda10.2
+ARG TARGETARCH
+LABEL maintainer=NVIDIA CORPORATION <cudatools@nvidia.com>
+RUN |1 TARGETARCH=amd64 RUN apt-get update && apt-get install -y --no-install-recommends \
+    cuda-libraries-10-2=${NV_CUDA_LIB_VERSION} \
+    cuda-npp-10-2=${NV_LIBNPP_VERSION} \
+    cuda-nvtx-10-2=${NV_NVTX_VERSION} \
+    cuda-cusparse-10-2=${NV_LIBCUSPARSE_VERSION} \
+    ${NV_LIBCUBLAS_PACKAGE} \
+    ${NV_LIBNCCL_PACKAGE} \
+    && rm -rf /var/lib/apt/lists/* # buildkit
+RUN |1 TARGETARCH=amd64 RUN apt-mark hold ${NV_LIBNCCL_PACKAGE_NAME} ${NV_LIBCUBLAS_PACKAGE_NAME} # buildkit
+RUN apt update
+RUN apt install -y python3-pip
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt install -y python3-sklearn python3-numpy python3-scipy
+RUN pip3 install pillow torch==1.8.0 torchvision==0.9.0
+COPY file:ea8d2bc603736f6343e1c5740fef674a4ebf9c8b4d7cfa963ed8aa5678d664b5 in /etc/
+bash

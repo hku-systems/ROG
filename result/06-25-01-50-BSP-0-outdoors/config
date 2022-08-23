@@ -1,0 +1,8 @@
+BSP:
+world_size: 5
+threshold: 0
+bw control: outdoors
+epoch: 3
+E: [25, 1, 1, 1, 1]
+library_arg: --SSP-enable
+note: BSP-Bx1

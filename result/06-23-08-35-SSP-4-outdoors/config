@@ -1,0 +1,8 @@
+SSP:
+world_size: 5
+threshold: 4
+bw control: outdoors
+epoch: 3
+E: [25, 1, 1, 1, 1]
+library_arg: --SSP-enable
+note: SSP 4

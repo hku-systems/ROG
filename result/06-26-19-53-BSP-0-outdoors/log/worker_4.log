@@ -1,0 +1,1067 @@
+numba_avail: False; cupy_avail: False
+=> creating model
+2022-06-30 17:58:34,903 Data processing configuration for current model + dataset:
+2022-06-30 17:58:34,903 	input_size: (3, 224, 224)
+2022-06-30 17:58:34,903 	interpolation: bicubic
+2022-06-30 17:58:34,903 	mean: (0.5071, 0.4867, 0.4408)
+2022-06-30 17:58:34,903 	std: (0.2675, 0.2565, 0.2761)
+2022-06-30 17:58:34,903 	crop_pct: 1.0
+2022-06-30 17:58:34,905 AMP not enabled. Training in float32.
+2022-06-30 17:58:34,975 Loaded checkpoint 'Convolutional-MLPs/chkpt/convmlp_m_cifar100.pth'
+{75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99}
+{75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99}
+ConvMLP init finish
+batch_size: 8; train_idx_num: 4; test_idx_num: 0; local_update: 4
+arg FLOWN_enable False
+arg compression_enable (DEFSGDM) True
+arg ROG_enable False
+2022-06-30 17:58:36,998 Device cuda:0; cudnn.benchmark=True; cudnn.enabled=True
+2022-06-30 17:58:36,998 Warm up complete
+2022-06-30 17:58:38,003 conneted to parameter server
+2022-06-30 17:58:58,900 All workers ready, my rank is 1
+2022-06-30 17:58:58,901 {'lr': 1e-06, 'momentum': 0.9, 'dampening': 0.0, 'weight_decay': 0.0005, 'nesterov': True}
+2022-06-30 17:58:58,902 Worker started.
+
+Epoch: [1 | 1] learning rate: 1.00E-06
+2022-06-30 17:59:02,426 Send size 2.09 MB
+2022-06-30 18:00:02,219 Recv size 2.09 MB
+2022-06-30 18:00:02,385 Start sleep.
+2022-06-30 18:00:18,758 Iteration 1 worker1
+2022-06-30 18:00:18,758 communication: 59.80; avg 59.80; sum 59.80 compress: 1.54E-01 decompress: 1.30E-01
+2022-06-30 18:00:18,759 computation: 3.36; avg 3.36; sum 3.36; sleep:16.36 total compute+compress+sleep: 20.00
+2022-06-30 18:00:18,759 GPU running time: 3.36; avg: 3.36; sum 3.36
+2022-06-30 18:00:18,760 loss: 3.39 loss avg: 3.42
+
+2022-06-30 18:00:37,571 Send size 2.09 MB
+2022-06-30 18:01:00,021 Recv size 2.09 MB
+2022-06-30 18:01:00,164 Iteration 2 worker1
+2022-06-30 18:01:00,164 communication: 22.46; avg 41.13; sum 82.26 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:01:00,164 computation: 2.27; avg 2.81; sum 5.63; sleep:17.13 total compute+compress+sleep: 19.68
+2022-06-30 18:01:00,164 GPU running time: 2.27; avg: 2.81; sum 5.63
+2022-06-30 18:01:00,164 loss: 3.78 loss avg: 3.49
+
+2022-06-30 18:01:19,736 Send size 2.09 MB
+2022-06-30 18:01:42,066 Recv size 2.09 MB
+2022-06-30 18:01:42,238 Iteration 3 worker1
+2022-06-30 18:01:42,238 communication: 22.34; avg 34.87; sum 104.60 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:01:42,239 computation: 2.27; avg 2.63; sum 7.90; sleep:4.43 total compute+compress+sleep: 6.99
+2022-06-30 18:01:42,239 GPU running time: 2.27; avg: 2.63; sum 7.90
+2022-06-30 18:01:42,239 loss: 4.35 loss avg: 3.73
+
+2022-06-30 18:01:49,111 Send size 2.09 MB
+2022-06-30 18:02:16,130 Recv size 2.09 MB
+2022-06-30 18:02:16,297 Iteration 4 worker1
+2022-06-30 18:02:16,297 communication: 27.03; avg 32.91; sum 131.63 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:02:16,297 computation: 2.26; avg 2.54; sum 10.16; sleep:3.57 total compute+compress+sleep: 6.12
+2022-06-30 18:02:16,297 GPU running time: 2.26; avg: 2.54; sum 10.16
+2022-06-30 18:02:16,298 loss: 3.24 loss avg: 3.71
+
+2022-06-30 18:02:22,299 Send size 2.09 MB
+2022-06-30 18:02:51,234 Recv size 2.09 MB
+2022-06-30 18:02:51,407 Iteration 5 worker1
+2022-06-30 18:02:51,407 communication: 28.95; avg 32.12; sum 160.58 compress: 1.54E-01 decompress: 1.30E-01
+2022-06-30 18:02:51,407 computation: 2.26; avg 2.48; sum 12.42; sleep:3.45 total compute+compress+sleep: 6.00
+2022-06-30 18:02:51,407 GPU running time: 2.26; avg: 2.48; sum 12.42
+2022-06-30 18:02:51,408 loss: 4.23 loss avg: 3.84
+
+2022-06-30 18:02:57,307 Send size 2.09 MB
+2022-06-30 18:04:15,999 Recv size 2.09 MB
+2022-06-30 18:04:16,148 Iteration 6 worker1
+2022-06-30 18:04:16,148 communication: 78.70; avg 39.88; sum 239.28 compress: 1.54E-01 decompress: 1.30E-01
+2022-06-30 18:04:16,149 computation: 2.27; avg 2.45; sum 14.69; sleep:2.99 total compute+compress+sleep: 5.55
+2022-06-30 18:04:16,149 GPU running time: 2.27; avg: 2.45; sum 14.69
+2022-06-30 18:04:16,149 loss: 5.20 loss avg: 3.89
+
+2022-06-30 18:04:21,588 Send size 2.09 MB
+2022-06-30 18:04:37,395 Recv size 2.09 MB
+2022-06-30 18:04:37,540 Iteration 7 worker1
+2022-06-30 18:04:37,540 communication: 15.82; avg 36.44; sum 255.10 compress: 1.54E-01 decompress: 1.30E-01
+2022-06-30 18:04:37,540 computation: 2.28; avg 2.43; sum 16.97; sleep:3.83 total compute+compress+sleep: 6.38
+2022-06-30 18:04:37,540 GPU running time: 2.28; avg: 2.43; sum 16.97
+2022-06-30 18:04:37,541 loss: 4.18 loss avg: 3.93
+
+2022-06-30 18:04:43,845 Send size 2.09 MB
+2022-06-30 18:04:57,575 Recv size 2.09 MB
+2022-06-30 18:04:57,749 Iteration 8 worker1
+2022-06-30 18:04:57,749 communication: 13.74; avg 33.60; sum 268.84 compress: 1.58E-01 decompress: 1.30E-01
+2022-06-30 18:04:57,749 computation: 2.28; avg 2.41; sum 19.25; sleep:2.86 total compute+compress+sleep: 5.45
+2022-06-30 18:04:57,749 GPU running time: 2.28; avg: 2.41; sum 19.25
+2022-06-30 18:04:57,750 loss: 4.77 loss avg: 3.97
+
+2022-06-30 18:05:03,032 Send size 2.09 MB
+2022-06-30 18:05:24,694 Recv size 2.09 MB
+2022-06-30 18:05:24,844 Iteration 9 worker1
+2022-06-30 18:05:24,844 communication: 21.67; avg 32.28; sum 290.51 compress: 1.57E-01 decompress: 1.30E-01
+2022-06-30 18:05:24,844 computation: 2.26; avg 2.39; sum 21.51; sleep:2.92 total compute+compress+sleep: 5.46
+2022-06-30 18:05:24,844 GPU running time: 2.26; avg: 2.39; sum 21.51
+2022-06-30 18:05:24,845 loss: 1.94 loss avg: 3.92
+
+2022-06-30 18:05:30,202 Send size 2.09 MB
+2022-06-30 18:05:45,527 Recv size 2.09 MB
+2022-06-30 18:05:45,671 Iteration 10 worker1
+2022-06-30 18:05:45,671 communication: 15.33; avg 30.58; sum 305.84 compress: 1.57E-01 decompress: 1.30E-01
+2022-06-30 18:05:45,671 computation: 2.27; avg 2.38; sum 23.78; sleep:2.85 total compute+compress+sleep: 5.41
+2022-06-30 18:05:45,671 GPU running time: 2.27; avg: 2.38; sum 23.78
+2022-06-30 18:05:45,671 loss: 3.76 loss avg: 3.90
+
+2022-06-30 18:05:50,964 Send size 2.09 MB
+2022-06-30 18:06:11,236 Recv size 2.09 MB
+2022-06-30 18:06:11,387 Iteration 11 worker1
+2022-06-30 18:06:11,387 communication: 20.28; avg 29.65; sum 326.12 compress: 1.57E-01 decompress: 1.30E-01
+2022-06-30 18:06:11,387 computation: 2.27; avg 2.37; sum 26.05; sleep:2.87 total compute+compress+sleep: 5.42
+2022-06-30 18:06:11,387 GPU running time: 2.27; avg: 2.37; sum 26.05
+2022-06-30 18:06:11,388 loss: 3.89 loss avg: 3.93
+
+2022-06-30 18:06:16,680 Send size 2.09 MB
+2022-06-30 18:06:36,607 Recv size 2.09 MB
+2022-06-30 18:06:36,750 Iteration 12 worker1
+2022-06-30 18:06:36,750 communication: 19.94; avg 28.84; sum 346.06 compress: 1.56E-01 decompress: 1.30E-01
+2022-06-30 18:06:36,750 computation: 2.26; avg 2.36; sum 28.31; sleep:2.84 total compute+compress+sleep: 5.38
+2022-06-30 18:06:36,750 GPU running time: 2.26; avg: 2.36; sum 28.31
+2022-06-30 18:06:36,751 loss: 3.37 loss avg: 3.85
+
+2022-06-30 18:06:42,026 Send size 2.09 MB
+2022-06-30 18:07:01,320 Recv size 2.09 MB
+2022-06-30 18:07:01,468 Iteration 13 worker1
+2022-06-30 18:07:01,468 communication: 19.30; avg 28.11; sum 365.36 compress: 1.56E-01 decompress: 1.30E-01
+2022-06-30 18:07:01,468 computation: 2.27; avg 2.35; sum 30.58; sleep:2.79 total compute+compress+sleep: 5.34
+2022-06-30 18:07:01,468 GPU running time: 2.27; avg: 2.35; sum 30.58
+2022-06-30 18:07:01,469 loss: 2.18 loss avg: 3.81
+
+2022-06-30 18:07:06,714 Send size 2.09 MB
+2022-06-30 18:07:24,575 Recv size 2.09 MB
+2022-06-30 18:07:24,716 Iteration 14 worker1
+2022-06-30 18:07:24,716 communication: 17.87; avg 27.37; sum 383.23 compress: 1.56E-01 decompress: 1.29E-01
+2022-06-30 18:07:24,716 computation: 2.28; avg 2.35; sum 32.86; sleep:2.76 total compute+compress+sleep: 5.32
+2022-06-30 18:07:24,716 GPU running time: 2.28; avg: 2.35; sum 32.86
+2022-06-30 18:07:24,717 loss: 4.34 loss avg: 3.80
+
+2022-06-30 18:07:29,905 Send size 2.09 MB
+2022-06-30 18:07:43,405 Recv size 2.09 MB
+2022-06-30 18:07:43,548 Iteration 15 worker1
+2022-06-30 18:07:43,548 communication: 13.51; avg 26.45; sum 396.74 compress: 1.56E-01 decompress: 1.29E-01
+2022-06-30 18:07:43,548 computation: 2.26; avg 2.34; sum 35.12; sleep:4.18 total compute+compress+sleep: 6.72
+2022-06-30 18:07:43,548 GPU running time: 2.26; avg: 2.34; sum 35.12
+2022-06-30 18:07:43,549 loss: 2.88 loss avg: 3.79
+
+2022-06-30 18:07:50,145 Send size 2.09 MB
+2022-06-30 18:08:05,449 Recv size 2.09 MB
+2022-06-30 18:08:05,592 Iteration 16 worker1
+2022-06-30 18:08:05,592 communication: 15.31; avg 25.75; sum 412.05 compress: 1.56E-01 decompress: 1.29E-01
+2022-06-30 18:08:05,592 computation: 2.25; avg 2.34; sum 37.37; sleep:2.89 total compute+compress+sleep: 5.42
+2022-06-30 18:08:05,592 GPU running time: 2.25; avg: 2.34; sum 37.37
+2022-06-30 18:08:05,593 loss: 2.53 loss avg: 3.75
+
+2022-06-30 18:08:10,917 Send size 2.09 MB
+2022-06-30 18:08:24,913 Recv size 2.09 MB
+2022-06-30 18:08:25,054 Iteration 17 worker1
+2022-06-30 18:08:25,054 communication: 14.01; avg 25.06; sum 426.06 compress: 1.55E-01 decompress: 1.28E-01
+2022-06-30 18:08:25,054 computation: 2.27; avg 2.33; sum 39.64; sleep:2.99 total compute+compress+sleep: 5.53
+2022-06-30 18:08:25,054 GPU running time: 2.27; avg: 2.33; sum 39.64
+2022-06-30 18:08:25,055 loss: 3.17 loss avg: 3.74
+
+2022-06-30 18:08:30,475 Send size 2.09 MB
+2022-06-30 18:08:44,609 Recv size 2.09 MB
+2022-06-30 18:08:44,774 Iteration 18 worker1
+2022-06-30 18:08:44,774 communication: 14.14; avg 24.46; sum 440.20 compress: 1.55E-01 decompress: 1.28E-01
+2022-06-30 18:08:44,774 computation: 2.26; avg 2.33; sum 41.90; sleep:2.88 total compute+compress+sleep: 5.42
+2022-06-30 18:08:44,774 GPU running time: 2.26; avg: 2.33; sum 41.90
+2022-06-30 18:08:44,775 loss: 3.54 loss avg: 3.72
+
+2022-06-30 18:08:50,097 Send size 2.09 MB
+2022-06-30 18:09:06,031 Recv size 2.09 MB
+2022-06-30 18:09:06,173 Iteration 19 worker1
+2022-06-30 18:09:06,173 communication: 15.94; avg 24.01; sum 456.14 compress: 1.55E-01 decompress: 1.28E-01
+2022-06-30 18:09:06,174 computation: 2.28; avg 2.33; sum 44.18; sleep:2.84 total compute+compress+sleep: 5.40
+2022-06-30 18:09:06,174 GPU running time: 2.28; avg: 2.33; sum 44.18
+2022-06-30 18:09:06,174 loss: 4.46 loss avg: 3.73
+
+2022-06-30 18:09:11,432 Send size 2.09 MB
+2022-06-30 18:09:27,454 Recv size 2.09 MB
+2022-06-30 18:09:27,595 Iteration 20 worker1
+2022-06-30 18:09:27,595 communication: 16.03; avg 23.61; sum 472.17 compress: 1.55E-01 decompress: 1.28E-01
+2022-06-30 18:09:27,596 computation: 2.25; avg 2.32; sum 46.43; sleep:2.86 total compute+compress+sleep: 5.39
+2022-06-30 18:09:27,596 GPU running time: 2.25; avg: 2.32; sum 46.43
+2022-06-30 18:09:27,596 loss: 4.14 loss avg: 3.69
+
+2022-06-30 18:09:32,890 Send size 2.09 MB
+2022-06-30 18:09:51,713 Recv size 2.09 MB
+2022-06-30 18:09:51,859 Iteration 21 worker1
+2022-06-30 18:09:51,859 communication: 18.83; avg 23.38; sum 491.00 compress: 1.55E-01 decompress: 1.28E-01
+2022-06-30 18:09:51,859 computation: 2.27; avg 2.32; sum 48.70; sleep:2.81 total compute+compress+sleep: 5.35
+2022-06-30 18:09:51,859 GPU running time: 2.27; avg: 2.32; sum 48.70
+2022-06-30 18:09:51,860 loss: 3.89 loss avg: 3.70
+
+2022-06-30 18:09:57,113 Send size 2.09 MB
+2022-06-30 18:10:14,607 Recv size 2.09 MB
+2022-06-30 18:10:14,754 Iteration 22 worker1
+2022-06-30 18:10:14,754 communication: 17.50; avg 23.11; sum 508.50 compress: 1.55E-01 decompress: 1.28E-01
+2022-06-30 18:10:14,754 computation: 2.28; avg 2.32; sum 50.98; sleep:2.78 total compute+compress+sleep: 5.34
+2022-06-30 18:10:14,754 GPU running time: 2.28; avg: 2.32; sum 50.98
+2022-06-30 18:10:14,755 loss: 3.73 loss avg: 3.69
+
+2022-06-30 18:10:19,984 Send size 2.09 MB
+2022-06-30 18:10:38,200 Recv size 2.09 MB
+2022-06-30 18:10:38,341 Iteration 23 worker1
+2022-06-30 18:10:38,341 communication: 18.23; avg 22.90; sum 526.73 compress: 1.55E-01 decompress: 1.28E-01
+2022-06-30 18:10:38,341 computation: 2.28; avg 2.32; sum 53.26; sleep:2.80 total compute+compress+sleep: 5.35
+2022-06-30 18:10:38,341 GPU running time: 2.28; avg: 2.32; sum 53.26
+2022-06-30 18:10:38,342 loss: 4.52 loss avg: 3.68
+
+2022-06-30 18:10:43,563 Send size 2.09 MB
+2022-06-30 18:10:59,363 Recv size 2.09 MB
+2022-06-30 18:10:59,506 Iteration 24 worker1
+2022-06-30 18:10:59,506 communication: 15.81; avg 22.61; sum 542.54 compress: 1.55E-01 decompress: 1.28E-01
+2022-06-30 18:10:59,506 computation: 2.26; avg 2.31; sum 55.52; sleep:2.82 total compute+compress+sleep: 5.36
+2022-06-30 18:10:59,506 GPU running time: 2.26; avg: 2.31; sum 55.52
+2022-06-30 18:10:59,507 loss: 3.34 loss avg: 3.66
+
+2022-06-30 18:11:04,798 Send size 2.09 MB
+2022-06-30 18:11:20,168 Recv size 2.09 MB
+2022-06-30 18:11:20,310 Iteration 25 worker1
+2022-06-30 18:11:20,310 communication: 15.41; avg 22.32; sum 557.95 compress: 1.55E-01 decompress: 1.28E-01
+2022-06-30 18:11:20,310 computation: 2.27; avg 2.31; sum 57.79; sleep:4.87 total compute+compress+sleep: 7.42
+2022-06-30 18:11:20,310 GPU running time: 2.27; avg: 2.31; sum 57.79
+2022-06-30 18:11:20,311 loss: 2.85 loss avg: 3.63
+
+2022-06-30 18:11:27,611 Send size 2.09 MB
+2022-06-30 18:11:39,892 Recv size 2.09 MB
+2022-06-30 18:11:40,034 Iteration 26 worker1
+2022-06-30 18:11:40,034 communication: 12.29; avg 21.93; sum 570.24 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:11:40,034 computation: 2.26; avg 2.31; sum 60.05; sleep:3.78 total compute+compress+sleep: 6.32
+2022-06-30 18:11:40,034 GPU running time: 2.26; avg: 2.31; sum 60.05
+2022-06-30 18:11:40,035 loss: 3.19 loss avg: 3.64
+
+2022-06-30 18:11:46,244 Send size 2.09 MB
+2022-06-30 18:12:00,797 Recv size 2.09 MB
+2022-06-30 18:12:00,940 Iteration 27 worker1
+2022-06-30 18:12:00,940 communication: 14.56; avg 21.66; sum 584.80 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:12:00,940 computation: 2.26; avg 2.31; sum 62.31; sleep:2.94 total compute+compress+sleep: 5.47
+2022-06-30 18:12:00,940 GPU running time: 2.26; avg: 2.31; sum 62.31
+2022-06-30 18:12:00,940 loss: 4.01 loss avg: 3.65
+
+2022-06-30 18:12:06,319 Send size 2.09 MB
+2022-06-30 18:12:21,932 Recv size 2.09 MB
+2022-06-30 18:12:22,075 Iteration 28 worker1
+2022-06-30 18:12:22,075 communication: 15.62; avg 21.44; sum 600.42 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:12:22,075 computation: 2.28; avg 2.31; sum 64.59; sleep:2.91 total compute+compress+sleep: 5.46
+2022-06-30 18:12:22,075 GPU running time: 2.28; avg: 2.31; sum 64.59
+2022-06-30 18:12:22,076 loss: 4.17 loss avg: 3.65
+
+2022-06-30 18:12:27,412 Send size 2.09 MB
+2022-06-30 18:12:42,568 Recv size 2.09 MB
+2022-06-30 18:12:42,710 Iteration 29 worker1
+2022-06-30 18:12:42,710 communication: 15.17; avg 21.23; sum 615.59 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:12:42,710 computation: 2.26; avg 2.31; sum 66.85; sleep:2.84 total compute+compress+sleep: 5.38
+2022-06-30 18:12:42,710 GPU running time: 2.26; avg: 2.31; sum 66.85
+2022-06-30 18:12:42,711 loss: 3.35 loss avg: 3.66
+
+2022-06-30 18:12:48,010 Send size 2.09 MB
+2022-06-30 18:13:03,114 Recv size 2.09 MB
+2022-06-30 18:13:03,259 Iteration 30 worker1
+2022-06-30 18:13:03,259 communication: 15.11; avg 21.02; sum 630.70 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:13:03,259 computation: 2.29; avg 2.30; sum 69.14; sleep:2.78 total compute+compress+sleep: 5.35
+2022-06-30 18:13:03,259 GPU running time: 2.29; avg: 2.30; sum 69.14
+2022-06-30 18:13:03,260 loss: 3.02 loss avg: 3.66
+
+2022-06-30 18:13:08,472 Send size 2.09 MB
+2022-06-30 18:13:23,356 Recv size 2.09 MB
+2022-06-30 18:13:23,499 Iteration 31 worker1
+2022-06-30 18:13:23,499 communication: 14.89; avg 20.83; sum 645.59 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:13:23,499 computation: 2.26; avg 2.30; sum 71.40; sleep:2.80 total compute+compress+sleep: 5.34
+2022-06-30 18:13:23,499 GPU running time: 2.26; avg: 2.30; sum 71.40
+2022-06-30 18:13:23,500 loss: 4.61 loss avg: 3.65
+
+2022-06-30 18:13:28,742 Send size 2.09 MB
+2022-06-30 18:13:42,041 Recv size 2.09 MB
+2022-06-30 18:13:42,185 Iteration 32 worker1
+2022-06-30 18:13:42,185 communication: 13.31; avg 20.59; sum 658.90 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:13:42,185 computation: 2.27; avg 2.30; sum 73.67; sleep:2.79 total compute+compress+sleep: 5.34
+2022-06-30 18:13:42,185 GPU running time: 2.27; avg: 2.30; sum 73.67
+2022-06-30 18:13:42,186 loss: 4.00 loss avg: 3.66
+
+2022-06-30 18:13:47,404 Send size 2.09 MB
+2022-06-30 18:14:00,627 Recv size 2.09 MB
+2022-06-30 18:14:00,768 Iteration 33 worker1
+2022-06-30 18:14:00,768 communication: 13.23; avg 20.37; sum 672.13 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:14:00,768 computation: 2.26; avg 2.30; sum 75.93; sleep:2.79 total compute+compress+sleep: 5.32
+2022-06-30 18:14:00,768 GPU running time: 2.26; avg: 2.30; sum 75.93
+2022-06-30 18:14:00,769 loss: 2.14 loss avg: 3.65
+
+2022-06-30 18:14:05,994 Send size 2.09 MB
+2022-06-30 18:14:19,255 Recv size 2.09 MB
+2022-06-30 18:14:19,398 Iteration 34 worker1
+2022-06-30 18:14:19,398 communication: 13.27; avg 20.16; sum 685.40 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:14:19,398 computation: 2.27; avg 2.30; sum 78.20; sleep:2.79 total compute+compress+sleep: 5.34
+2022-06-30 18:14:19,398 GPU running time: 2.27; avg: 2.30; sum 78.20
+2022-06-30 18:14:19,399 loss: 4.47 loss avg: 3.66
+
+2022-06-30 18:14:24,628 Send size 2.09 MB
+2022-06-30 18:14:37,902 Recv size 2.09 MB
+2022-06-30 18:14:38,046 Iteration 35 worker1
+2022-06-30 18:14:38,046 communication: 13.28; avg 19.96; sum 698.68 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:14:38,046 computation: 2.27; avg 2.30; sum 80.47; sleep:2.81 total compute+compress+sleep: 5.37
+2022-06-30 18:14:38,046 GPU running time: 2.27; avg: 2.30; sum 80.47
+2022-06-30 18:14:38,046 loss: 3.45 loss avg: 3.65
+
+2022-06-30 18:14:43,301 Send size 2.09 MB
+2022-06-30 18:15:02,783 Recv size 2.09 MB
+2022-06-30 18:15:02,930 Iteration 36 worker1
+2022-06-30 18:15:02,930 communication: 19.49; avg 19.95; sum 718.17 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:15:02,930 computation: 2.27; avg 2.30; sum 82.74; sleep:2.85 total compute+compress+sleep: 5.41
+2022-06-30 18:15:02,930 GPU running time: 2.27; avg: 2.30; sum 82.74
+2022-06-30 18:15:02,931 loss: 3.55 loss avg: 3.64
+
+2022-06-30 18:15:08,221 Send size 2.09 MB
+2022-06-30 18:15:38,609 Recv size 2.09 MB
+2022-06-30 18:15:38,752 Iteration 37 worker1
+2022-06-30 18:15:38,752 communication: 30.40; avg 20.23; sum 748.57 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:15:38,752 computation: 2.27; avg 2.30; sum 85.01; sleep:2.85 total compute+compress+sleep: 5.40
+2022-06-30 18:15:38,752 GPU running time: 2.27; avg: 2.30; sum 85.01
+2022-06-30 18:15:38,753 loss: 3.55 loss avg: 3.64
+
+2022-06-30 18:15:44,037 Send size 2.09 MB
+2022-06-30 18:16:02,355 Recv size 2.09 MB
+2022-06-30 18:16:02,502 Iteration 38 worker1
+2022-06-30 18:16:02,502 communication: 18.33; avg 20.18; sum 766.90 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:16:02,502 computation: 2.27; avg 2.30; sum 87.28; sleep:2.86 total compute+compress+sleep: 5.41
+2022-06-30 18:16:02,502 GPU running time: 2.27; avg: 2.30; sum 87.28
+2022-06-30 18:16:02,503 loss: 3.65 loss avg: 3.65
+
+2022-06-30 18:16:07,805 Send size 2.09 MB
+2022-06-30 18:16:18,619 Recv size 2.09 MB
+2022-06-30 18:16:18,790 Iteration 39 worker1
+2022-06-30 18:16:18,790 communication: 10.82; avg 19.94; sum 777.72 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:16:18,790 computation: 2.28; avg 2.30; sum 89.56; sleep:2.82 total compute+compress+sleep: 5.37
+2022-06-30 18:16:18,790 GPU running time: 2.28; avg: 2.30; sum 89.56
+2022-06-30 18:16:18,791 loss: 4.43 loss avg: 3.64
+
+2022-06-30 18:16:24,046 Send size 2.09 MB
+2022-06-30 18:16:36,671 Recv size 2.09 MB
+2022-06-30 18:16:36,841 Iteration 40 worker1
+2022-06-30 18:16:36,841 communication: 12.63; avg 19.76; sum 790.35 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:16:36,841 computation: 2.27; avg 2.30; sum 91.83; sleep:2.80 total compute+compress+sleep: 5.35
+2022-06-30 18:16:36,841 GPU running time: 2.27; avg: 2.30; sum 91.83
+2022-06-30 18:16:36,842 loss: 4.21 loss avg: 3.66
+
+2022-06-30 18:16:42,069 Send size 2.09 MB
+2022-06-30 18:16:49,478 Recv size 2.09 MB
+2022-06-30 18:16:49,644 Iteration 41 worker1
+2022-06-30 18:16:49,644 communication: 7.42; avg 19.46; sum 797.77 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:16:49,644 computation: 2.27; avg 2.30; sum 94.10; sleep:2.81 total compute+compress+sleep: 5.36
+2022-06-30 18:16:49,644 GPU running time: 2.27; avg: 2.30; sum 94.10
+2022-06-30 18:16:49,645 loss: 4.29 loss avg: 3.65
+
+2022-06-30 18:16:54,895 Send size 2.09 MB
+2022-06-30 18:17:08,713 Recv size 2.09 MB
+2022-06-30 18:17:08,872 Iteration 42 worker1
+2022-06-30 18:17:08,872 communication: 13.83; avg 19.32; sum 811.60 compress: 1.54E-01 decompress: 1.27E-01
+2022-06-30 18:17:08,872 computation: 2.27; avg 2.29; sum 96.37; sleep:2.83 total compute+compress+sleep: 5.38
+2022-06-30 18:17:08,872 GPU running time: 2.27; avg: 2.29; sum 96.37
+2022-06-30 18:17:08,872 loss: 2.48 loss avg: 3.65
+
+2022-06-30 18:17:14,129 Send size 2.09 MB
+2022-06-30 18:17:29,295 Recv size 2.09 MB
+2022-06-30 18:17:29,457 Iteration 43 worker1
+2022-06-30 18:17:29,457 communication: 15.18; avg 19.23; sum 826.78 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:17:29,457 computation: 2.27; avg 2.29; sum 98.64; sleep:2.80 total compute+compress+sleep: 5.35
+2022-06-30 18:17:29,457 GPU running time: 2.27; avg: 2.29; sum 98.64
+2022-06-30 18:17:29,458 loss: 1.45 loss avg: 3.62
+
+2022-06-30 18:17:34,683 Send size 2.09 MB
+2022-06-30 18:17:49,901 Recv size 2.09 MB
+2022-06-30 18:17:50,063 Iteration 44 worker1
+2022-06-30 18:17:50,063 communication: 15.23; avg 19.14; sum 842.01 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:17:50,063 computation: 2.26; avg 2.29; sum 100.90; sleep:2.81 total compute+compress+sleep: 5.35
+2022-06-30 18:17:50,063 GPU running time: 2.26; avg: 2.29; sum 100.90
+2022-06-30 18:17:50,064 loss: 2.86 loss avg: 3.60
+
+2022-06-30 18:17:55,308 Send size 2.09 MB
+2022-06-30 18:18:13,180 Recv size 2.09 MB
+2022-06-30 18:18:13,340 Iteration 45 worker1
+2022-06-30 18:18:13,340 communication: 17.88; avg 19.11; sum 859.89 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:18:13,340 computation: 2.26; avg 2.29; sum 103.16; sleep:2.80 total compute+compress+sleep: 5.34
+2022-06-30 18:18:13,340 GPU running time: 2.26; avg: 2.29; sum 103.16
+2022-06-30 18:18:13,341 loss: 3.89 loss avg: 3.60
+
+2022-06-30 18:18:18,572 Send size 2.09 MB
+2022-06-30 18:18:42,867 Recv size 2.09 MB
+2022-06-30 18:18:43,036 Iteration 46 worker1
+2022-06-30 18:18:43,036 communication: 24.30; avg 19.22; sum 884.19 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:18:43,036 computation: 2.27; avg 2.29; sum 105.43; sleep:2.84 total compute+compress+sleep: 5.39
+2022-06-30 18:18:43,036 GPU running time: 2.27; avg: 2.29; sum 105.43
+2022-06-30 18:18:43,037 loss: 3.30 loss avg: 3.59
+
+2022-06-30 18:18:48,301 Send size 2.09 MB
+2022-06-30 18:19:11,738 Recv size 2.09 MB
+2022-06-30 18:19:11,895 Iteration 47 worker1
+2022-06-30 18:19:11,895 communication: 23.45; avg 19.31; sum 907.64 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:19:11,895 computation: 2.26; avg 2.29; sum 107.69; sleep:2.78 total compute+compress+sleep: 5.32
+2022-06-30 18:19:11,895 GPU running time: 2.26; avg: 2.29; sum 107.69
+2022-06-30 18:19:11,896 loss: 3.87 loss avg: 3.59
+
+2022-06-30 18:19:17,102 Send size 2.09 MB
+2022-06-30 18:19:38,252 Recv size 2.09 MB
+2022-06-30 18:19:38,411 Iteration 48 worker1
+2022-06-30 18:19:38,411 communication: 21.16; avg 19.35; sum 928.80 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:19:38,411 computation: 2.26; avg 2.29; sum 109.95; sleep:2.80 total compute+compress+sleep: 5.34
+2022-06-30 18:19:38,411 GPU running time: 2.26; avg: 2.29; sum 109.95
+2022-06-30 18:19:38,412 loss: 3.60 loss avg: 3.57
+
+2022-06-30 18:19:43,654 Send size 2.09 MB
+2022-06-30 18:20:04,759 Recv size 2.09 MB
+2022-06-30 18:20:04,920 Iteration 49 worker1
+2022-06-30 18:20:04,920 communication: 21.11; avg 19.39; sum 949.91 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:20:04,920 computation: 2.27; avg 2.29; sum 112.22; sleep:2.88 total compute+compress+sleep: 5.43
+2022-06-30 18:20:04,920 GPU running time: 2.27; avg: 2.29; sum 112.22
+2022-06-30 18:20:04,921 loss: 3.69 loss avg: 3.57
+
+2022-06-30 18:20:10,236 Send size 2.09 MB
+2022-06-30 18:20:25,846 Recv size 2.09 MB
+2022-06-30 18:20:26,004 Iteration 50 worker1
+2022-06-30 18:20:26,004 communication: 15.62; avg 19.31; sum 965.53 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:20:26,004 computation: 2.27; avg 2.29; sum 114.49; sleep:2.79 total compute+compress+sleep: 5.34
+2022-06-30 18:20:26,004 GPU running time: 2.27; avg: 2.29; sum 114.49
+2022-06-30 18:20:26,005 loss: 3.73 loss avg: 3.57
+
+2022-06-30 18:20:31,236 Send size 2.09 MB
+2022-06-30 18:20:45,122 Recv size 2.09 MB
+2022-06-30 18:20:45,285 Iteration 51 worker1
+2022-06-30 18:20:45,285 communication: 13.90; avg 19.21; sum 979.43 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:20:45,285 computation: 2.27; avg 2.29; sum 116.76; sleep:2.80 total compute+compress+sleep: 5.35
+2022-06-30 18:20:45,285 GPU running time: 2.27; avg: 2.29; sum 116.76
+2022-06-30 18:20:45,285 loss: 4.20 loss avg: 3.56
+
+2022-06-30 18:20:50,513 Send size 2.09 MB
+2022-06-30 18:21:03,074 Recv size 2.09 MB
+2022-06-30 18:21:03,228 Iteration 52 worker1
+2022-06-30 18:21:03,228 communication: 12.57; avg 19.08; sum 992.00 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:21:03,229 computation: 2.26; avg 2.29; sum 119.02; sleep:2.83 total compute+compress+sleep: 5.38
+2022-06-30 18:21:03,229 GPU running time: 2.26; avg: 2.29; sum 119.02
+2022-06-30 18:21:03,229 loss: 3.57 loss avg: 3.56
+
+2022-06-30 18:21:08,482 Send size 2.09 MB
+2022-06-30 18:21:22,484 Recv size 2.09 MB
+2022-06-30 18:21:22,643 Iteration 53 worker1
+2022-06-30 18:21:22,643 communication: 14.01; avg 18.98; sum 1006.01 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:21:22,643 computation: 2.25; avg 2.29; sum 121.27; sleep:2.79 total compute+compress+sleep: 5.32
+2022-06-30 18:21:22,643 GPU running time: 2.25; avg: 2.29; sum 121.27
+2022-06-30 18:21:22,644 loss: 2.13 loss avg: 3.54
+
+2022-06-30 18:21:27,857 Send size 2.09 MB
+2022-06-30 18:22:26,123 Recv size 2.09 MB
+2022-06-30 18:22:26,273 Iteration 54 worker1
+2022-06-30 18:22:26,273 communication: 58.28; avg 19.71; sum 1064.29 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:22:26,274 computation: 2.26; avg 2.29; sum 123.53; sleep:2.82 total compute+compress+sleep: 5.36
+2022-06-30 18:22:26,274 GPU running time: 2.26; avg: 2.29; sum 123.53
+2022-06-30 18:22:26,274 loss: 3.17 loss avg: 3.53
+
+2022-06-30 18:22:31,525 Send size 2.09 MB
+2022-06-30 18:22:46,955 Recv size 2.09 MB
+2022-06-30 18:22:47,117 Iteration 55 worker1
+2022-06-30 18:22:47,117 communication: 15.44; avg 19.63; sum 1079.73 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:22:47,117 computation: 2.27; avg 2.29; sum 125.80; sleep:2.77 total compute+compress+sleep: 5.32
+2022-06-30 18:22:47,117 GPU running time: 2.27; avg: 2.29; sum 125.80
+2022-06-30 18:22:47,118 loss: 2.66 loss avg: 3.53
+
+2022-06-30 18:22:52,314 Send size 2.09 MB
+2022-06-30 18:23:07,888 Recv size 2.09 MB
+2022-06-30 18:23:08,050 Iteration 56 worker1
+2022-06-30 18:23:08,050 communication: 15.58; avg 19.56; sum 1095.31 compress: 1.53E-01 decompress: 1.28E-01
+2022-06-30 18:23:08,050 computation: 2.26; avg 2.29; sum 128.06; sleep:2.79 total compute+compress+sleep: 5.33
+2022-06-30 18:23:08,050 GPU running time: 2.26; avg: 2.29; sum 128.06
+2022-06-30 18:23:08,051 loss: 4.43 loss avg: 3.54
+
+2022-06-30 18:23:13,270 Send size 2.09 MB
+2022-06-30 18:23:25,722 Recv size 2.09 MB
+2022-06-30 18:23:25,882 Iteration 57 worker1
+2022-06-30 18:23:25,882 communication: 12.46; avg 19.44; sum 1107.77 compress: 1.53E-01 decompress: 1.27E-01
+2022-06-30 18:23:25,882 computation: 2.26; avg 2.29; sum 130.32; sleep:2.90 total compute+compress+sleep: 5.44
+2022-06-30 18:23:25,882 GPU running time: 2.26; avg: 2.29; sum 130.32
+2022-06-30 18:23:25,883 loss: 3.04 loss avg: 3.55
+
+2022-06-30 18:23:31,216 Send size 2.09 MB
+2022-06-30 18:23:44,282 Recv size 2.09 MB
+2022-06-30 18:23:44,448 Iteration 58 worker1
+2022-06-30 18:23:44,448 communication: 13.08; avg 19.33; sum 1120.85 compress: 1.53E-01 decompress: 1.28E-01
+2022-06-30 18:23:44,448 computation: 2.27; avg 2.29; sum 132.59; sleep:2.86 total compute+compress+sleep: 5.41
+2022-06-30 18:23:44,448 GPU running time: 2.27; avg: 2.29; sum 132.59
+2022-06-30 18:23:44,449 loss: 4.03 loss avg: 3.56
+
+2022-06-30 18:23:49,777 Send size 2.09 MB
+2022-06-30 18:24:02,258 Recv size 2.09 MB
+2022-06-30 18:24:02,423 Iteration 59 worker1
+2022-06-30 18:24:02,423 communication: 12.49; avg 19.21; sum 1133.34 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:24:02,423 computation: 2.27; avg 2.29; sum 134.86; sleep:2.85 total compute+compress+sleep: 5.43
+2022-06-30 18:24:02,423 GPU running time: 2.27; avg: 2.29; sum 134.86
+2022-06-30 18:24:02,423 loss: 3.26 loss avg: 3.54
+
+2022-06-30 18:24:07,702 Send size 2.09 MB
+2022-06-30 18:24:22,116 Recv size 2.09 MB
+2022-06-30 18:24:22,278 Iteration 60 worker1
+2022-06-30 18:24:22,278 communication: 14.42; avg 19.13; sum 1147.76 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:24:22,278 computation: 2.26; avg 2.29; sum 137.12; sleep:2.85 total compute+compress+sleep: 5.39
+2022-06-30 18:24:22,278 GPU running time: 2.26; avg: 2.29; sum 137.12
+2022-06-30 18:24:22,279 loss: 2.63 loss avg: 3.54
+
+2022-06-30 18:24:27,558 Send size 2.09 MB
+2022-06-30 18:24:42,153 Recv size 2.09 MB
+2022-06-30 18:24:42,317 Iteration 61 worker1
+2022-06-30 18:24:42,317 communication: 14.60; avg 19.06; sum 1162.36 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:24:42,317 computation: 2.27; avg 2.29; sum 139.39; sleep:2.77 total compute+compress+sleep: 5.32
+2022-06-30 18:24:42,317 GPU running time: 2.27; avg: 2.29; sum 139.39
+2022-06-30 18:24:42,318 loss: 2.72 loss avg: 3.54
+
+2022-06-30 18:24:47,561 Send size 2.09 MB
+2022-06-30 18:25:09,115 Recv size 2.09 MB
+2022-06-30 18:25:09,278 Iteration 62 worker1
+2022-06-30 18:25:09,278 communication: 21.56; avg 19.10; sum 1183.92 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:25:09,278 computation: 2.27; avg 2.29; sum 141.66; sleep:2.75 total compute+compress+sleep: 5.34
+2022-06-30 18:25:09,278 GPU running time: 2.27; avg: 2.29; sum 141.66
+2022-06-30 18:25:09,279 loss: 4.10 loss avg: 3.55
+
+2022-06-30 18:25:14,466 Send size 2.09 MB
+2022-06-30 18:25:29,678 Recv size 2.09 MB
+2022-06-30 18:25:29,845 Iteration 63 worker1
+2022-06-30 18:25:29,845 communication: 15.22; avg 19.03; sum 1199.14 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:25:29,845 computation: 2.27; avg 2.28; sum 143.93; sleep:2.79 total compute+compress+sleep: 5.34
+2022-06-30 18:25:29,845 GPU running time: 2.27; avg: 2.28; sum 143.93
+2022-06-30 18:25:29,846 loss: 4.45 loss avg: 3.55
+
+2022-06-30 18:25:35,069 Send size 2.09 MB
+2022-06-30 18:25:50,903 Recv size 2.09 MB
+2022-06-30 18:25:51,046 Iteration 64 worker1
+2022-06-30 18:25:51,046 communication: 15.84; avg 18.98; sum 1214.98 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:25:51,046 computation: 2.26; avg 2.28; sum 146.19; sleep:2.80 total compute+compress+sleep: 5.34
+2022-06-30 18:25:51,046 GPU running time: 2.26; avg: 2.28; sum 146.19
+2022-06-30 18:25:51,047 loss: 3.13 loss avg: 3.55
+
+2022-06-30 18:25:56,289 Send size 2.09 MB
+2022-06-30 18:26:17,237 Recv size 2.09 MB
+2022-06-30 18:26:17,401 Iteration 65 worker1
+2022-06-30 18:26:17,401 communication: 20.96; avg 19.02; sum 1235.94 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:26:17,401 computation: 2.28; avg 2.28; sum 148.47; sleep:2.76 total compute+compress+sleep: 5.32
+2022-06-30 18:26:17,401 GPU running time: 2.28; avg: 2.28; sum 148.47
+2022-06-30 18:26:17,401 loss: 2.17 loss avg: 3.53
+
+2022-06-30 18:26:22,591 Send size 2.09 MB
+2022-06-30 18:27:01,348 Recv size 2.09 MB
+2022-06-30 18:27:01,513 Iteration 66 worker1
+2022-06-30 18:27:01,513 communication: 38.77; avg 19.31; sum 1274.71 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:27:01,513 computation: 2.26; avg 2.28; sum 150.73; sleep:2.79 total compute+compress+sleep: 5.34
+2022-06-30 18:27:01,513 GPU running time: 2.26; avg: 2.28; sum 150.73
+2022-06-30 18:27:01,514 loss: 3.86 loss avg: 3.53
+
+2022-06-30 18:27:06,737 Send size 2.09 MB
+2022-06-30 18:27:44,776 Recv size 2.09 MB
+2022-06-30 18:27:44,924 Iteration 67 worker1
+2022-06-30 18:27:44,924 communication: 38.05; avg 19.59; sum 1312.76 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:27:44,924 computation: 2.27; avg 2.28; sum 153.00; sleep:2.80 total compute+compress+sleep: 5.34
+2022-06-30 18:27:44,924 GPU running time: 2.27; avg: 2.28; sum 153.00
+2022-06-30 18:27:44,925 loss: 3.06 loss avg: 3.53
+
+2022-06-30 18:27:50,161 Send size 2.09 MB
+2022-06-30 18:28:36,384 Recv size 2.09 MB
+2022-06-30 18:28:36,555 Iteration 68 worker1
+2022-06-30 18:28:36,555 communication: 46.23; avg 19.99; sum 1358.99 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:28:36,555 computation: 2.28; avg 2.28; sum 155.28; sleep:2.87 total compute+compress+sleep: 5.43
+2022-06-30 18:28:36,555 GPU running time: 2.28; avg: 2.28; sum 155.28
+2022-06-30 18:28:36,556 loss: 2.43 loss avg: 3.52
+
+2022-06-30 18:28:41,870 Send size 2.09 MB
+2022-06-30 18:29:14,942 Recv size 2.09 MB
+2022-06-30 18:29:15,089 Iteration 69 worker1
+2022-06-30 18:29:15,089 communication: 33.08; avg 20.18; sum 1392.07 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:29:15,089 computation: 2.28; avg 2.28; sum 157.56; sleep:2.77 total compute+compress+sleep: 5.33
+2022-06-30 18:29:15,089 GPU running time: 2.28; avg: 2.28; sum 157.56
+2022-06-30 18:29:15,090 loss: 4.62 loss avg: 3.52
+
+2022-06-30 18:29:20,286 Send size 2.09 MB
+2022-06-30 18:29:44,137 Recv size 2.09 MB
+2022-06-30 18:29:44,305 Iteration 70 worker1
+2022-06-30 18:29:44,305 communication: 23.86; avg 20.23; sum 1415.93 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:29:44,305 computation: 2.27; avg 2.28; sum 159.83; sleep:2.77 total compute+compress+sleep: 5.32
+2022-06-30 18:29:44,305 GPU running time: 2.27; avg: 2.28; sum 159.83
+2022-06-30 18:29:44,306 loss: 3.90 loss avg: 3.52
+
+2022-06-30 18:29:49,508 Send size 2.09 MB
+2022-06-30 18:30:13,318 Recv size 2.09 MB
+2022-06-30 18:30:13,488 Iteration 71 worker1
+2022-06-30 18:30:13,488 communication: 23.82; avg 20.28; sum 1439.75 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:30:13,488 computation: 2.26; avg 2.28; sum 162.09; sleep:2.79 total compute+compress+sleep: 5.34
+2022-06-30 18:30:13,488 GPU running time: 2.26; avg: 2.28; sum 162.09
+2022-06-30 18:30:13,489 loss: 3.17 loss avg: 3.52
+
+2022-06-30 18:30:18,700 Send size 2.09 MB
+2022-06-30 18:30:46,304 Recv size 2.09 MB
+2022-06-30 18:30:46,469 Iteration 72 worker1
+2022-06-30 18:30:46,469 communication: 27.61; avg 20.38; sum 1467.36 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:30:46,469 computation: 2.25; avg 2.28; sum 164.34; sleep:2.83 total compute+compress+sleep: 5.37
+2022-06-30 18:30:46,469 GPU running time: 2.25; avg: 2.28; sum 164.34
+2022-06-30 18:30:46,470 loss: 3.99 loss avg: 3.53
+
+2022-06-30 18:30:51,732 Send size 2.09 MB
+2022-06-30 18:31:14,784 Recv size 2.09 MB
+2022-06-30 18:31:14,934 Iteration 73 worker1
+2022-06-30 18:31:14,934 communication: 23.06; avg 20.42; sum 1490.42 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:31:14,934 computation: 2.26; avg 2.28; sum 166.60; sleep:2.84 total compute+compress+sleep: 5.38
+2022-06-30 18:31:14,934 GPU running time: 2.26; avg: 2.28; sum 166.60
+2022-06-30 18:31:14,935 loss: 2.49 loss avg: 3.52
+
+2022-06-30 18:31:20,214 Send size 2.09 MB
+2022-06-30 18:31:37,520 Recv size 2.09 MB
+2022-06-30 18:31:37,667 Iteration 74 worker1
+2022-06-30 18:31:37,667 communication: 17.32; avg 20.38; sum 1507.74 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:31:37,667 computation: 2.28; avg 2.28; sum 168.88; sleep:3.75 total compute+compress+sleep: 6.31
+2022-06-30 18:31:37,667 GPU running time: 2.28; avg: 2.28; sum 168.88
+2022-06-30 18:31:37,668 loss: 4.18 loss avg: 3.53
+
+2022-06-30 18:31:43,859 Send size 2.09 MB
+2022-06-30 18:32:06,192 Recv size 2.09 MB
+2022-06-30 18:32:06,343 Iteration 75 worker1
+2022-06-30 18:32:06,343 communication: 22.34; avg 20.40; sum 1530.08 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:32:06,344 computation: 2.27; avg 2.28; sum 171.15; sleep:8.62 total compute+compress+sleep: 11.17
+2022-06-30 18:32:06,344 GPU running time: 2.27; avg: 2.28; sum 171.15
+2022-06-30 18:32:06,344 loss: 2.47 loss avg: 3.53
+
+2022-06-30 18:32:17,412 Send size 2.09 MB
+2022-06-30 18:32:30,387 Recv size 2.09 MB
+2022-06-30 18:32:30,535 Iteration 76 worker1
+2022-06-30 18:32:30,535 communication: 12.99; avg 20.30; sum 1543.07 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:32:30,536 computation: 2.28; avg 2.28; sum 173.43; sleep:4.17 total compute+compress+sleep: 6.73
+2022-06-30 18:32:30,536 GPU running time: 2.28; avg: 2.28; sum 173.43
+2022-06-30 18:32:30,536 loss: 3.61 loss avg: 3.52
+
+2022-06-30 18:32:37,147 Send size 2.09 MB
+2022-06-30 18:32:49,846 Recv size 2.09 MB
+2022-06-30 18:32:49,992 Iteration 77 worker1
+2022-06-30 18:32:49,992 communication: 12.71; avg 20.21; sum 1555.78 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:32:49,992 computation: 2.27; avg 2.28; sum 175.70; sleep:2.90 total compute+compress+sleep: 5.45
+2022-06-30 18:32:49,992 GPU running time: 2.27; avg: 2.28; sum 175.70
+2022-06-30 18:32:49,993 loss: 4.35 loss avg: 3.52
+
+2022-06-30 18:32:55,342 Send size 2.09 MB
+2022-06-30 18:33:10,640 Recv size 2.09 MB
+2022-06-30 18:33:10,786 Iteration 78 worker1
+2022-06-30 18:33:10,786 communication: 15.31; avg 20.14; sum 1571.09 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:33:10,786 computation: 2.28; avg 2.28; sum 177.98; sleep:2.85 total compute+compress+sleep: 5.42
+2022-06-30 18:33:10,786 GPU running time: 2.28; avg: 2.28; sum 177.98
+2022-06-30 18:33:10,787 loss: 3.19 loss avg: 3.51
+
+2022-06-30 18:33:16,068 Send size 2.09 MB
+2022-06-30 18:33:31,168 Recv size 2.09 MB
+2022-06-30 18:33:31,317 Iteration 79 worker1
+2022-06-30 18:33:31,317 communication: 15.11; avg 20.08; sum 1586.20 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:33:31,317 computation: 2.26; avg 2.28; sum 180.24; sleep:2.98 total compute+compress+sleep: 5.52
+2022-06-30 18:33:31,317 GPU running time: 2.26; avg: 2.28; sum 180.24
+2022-06-30 18:33:31,317 loss: 3.64 loss avg: 3.50
+
+2022-06-30 18:33:36,717 Send size 2.09 MB
+2022-06-30 18:33:51,513 Recv size 2.09 MB
+2022-06-30 18:33:51,661 Iteration 80 worker1
+2022-06-30 18:33:51,661 communication: 14.81; avg 20.01; sum 1601.01 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:33:51,661 computation: 2.26; avg 2.28; sum 182.50; sleep:2.94 total compute+compress+sleep: 5.48
+2022-06-30 18:33:51,661 GPU running time: 2.26; avg: 2.28; sum 182.50
+2022-06-30 18:33:51,662 loss: 4.10 loss avg: 3.51
+
+2022-06-30 18:33:57,027 Send size 2.09 MB
+2022-06-30 18:34:11,547 Recv size 2.09 MB
+2022-06-30 18:34:11,697 Iteration 81 worker1
+2022-06-30 18:34:11,697 communication: 14.53; avg 19.95; sum 1615.54 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:34:11,697 computation: 2.26; avg 2.28; sum 184.76; sleep:2.92 total compute+compress+sleep: 5.46
+2022-06-30 18:34:11,697 GPU running time: 2.26; avg: 2.28; sum 184.76
+2022-06-30 18:34:11,698 loss: 3.16 loss avg: 3.51
+
+2022-06-30 18:34:17,050 Send size 2.09 MB
+2022-06-30 18:34:31,613 Recv size 2.09 MB
+2022-06-30 18:34:31,759 Iteration 82 worker1
+2022-06-30 18:34:31,759 communication: 14.57; avg 19.88; sum 1630.11 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:34:31,759 computation: 2.27; avg 2.28; sum 187.03; sleep:3.05 total compute+compress+sleep: 5.59
+2022-06-30 18:34:31,759 GPU running time: 2.27; avg: 2.28; sum 187.03
+2022-06-30 18:34:31,760 loss: 3.10 loss avg: 3.51
+
+2022-06-30 18:34:37,256 Send size 2.09 MB
+2022-06-30 18:34:51,009 Recv size 2.09 MB
+2022-06-30 18:34:51,154 Iteration 83 worker1
+2022-06-30 18:34:51,154 communication: 13.76; avg 19.81; sum 1643.87 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:34:51,154 computation: 2.28; avg 2.28; sum 189.31; sleep:3.04 total compute+compress+sleep: 5.60
+2022-06-30 18:34:51,154 GPU running time: 2.28; avg: 2.28; sum 189.31
+2022-06-30 18:34:51,155 loss: 3.34 loss avg: 3.51
+
+2022-06-30 18:34:56,627 Send size 2.09 MB
+2022-06-30 18:35:08,180 Recv size 2.09 MB
+2022-06-30 18:35:08,323 Iteration 84 worker1
+2022-06-30 18:35:08,323 communication: 11.56; avg 19.71; sum 1655.43 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:35:08,323 computation: 2.27; avg 2.28; sum 191.58; sleep:3.02 total compute+compress+sleep: 5.56
+2022-06-30 18:35:08,323 GPU running time: 2.27; avg: 2.28; sum 191.58
+2022-06-30 18:35:08,324 loss: 2.66 loss avg: 3.50
+
+2022-06-30 18:35:13,785 Send size 2.09 MB
+2022-06-30 18:35:29,600 Recv size 2.09 MB
+2022-06-30 18:35:29,748 Iteration 85 worker1
+2022-06-30 18:35:29,748 communication: 15.82; avg 19.66; sum 1671.25 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:35:29,749 computation: 2.28; avg 2.28; sum 193.86; sleep:2.95 total compute+compress+sleep: 5.51
+2022-06-30 18:35:29,749 GPU running time: 2.28; avg: 2.28; sum 193.86
+2022-06-30 18:35:29,749 loss: 3.65 loss avg: 3.50
+
+2022-06-30 18:35:35,128 Send size 2.09 MB
+2022-06-30 18:35:57,380 Recv size 2.09 MB
+2022-06-30 18:35:57,529 Iteration 86 worker1
+2022-06-30 18:35:57,529 communication: 22.26; avg 19.69; sum 1693.51 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:35:57,529 computation: 2.27; avg 2.28; sum 196.13; sleep:2.96 total compute+compress+sleep: 5.51
+2022-06-30 18:35:57,529 GPU running time: 2.27; avg: 2.28; sum 196.13
+2022-06-30 18:35:57,529 loss: 2.91 loss avg: 3.50
+
+2022-06-30 18:36:02,919 Send size 2.09 MB
+2022-06-30 18:36:08,856 Recv size 2.09 MB
+2022-06-30 18:36:09,001 Iteration 87 worker1
+2022-06-30 18:36:09,001 communication: 5.95; avg 19.53; sum 1699.46 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:36:09,001 computation: 2.26; avg 2.28; sum 198.39; sleep:3.02 total compute+compress+sleep: 5.56
+2022-06-30 18:36:09,001 GPU running time: 2.26; avg: 2.28; sum 198.39
+2022-06-30 18:36:09,002 loss: 3.12 loss avg: 3.49
+
+2022-06-30 18:36:14,462 Send size 2.09 MB
+2022-06-30 18:36:17,998 Recv size 2.09 MB
+2022-06-30 18:36:18,144 Iteration 88 worker1
+2022-06-30 18:36:18,144 communication: 3.55; avg 19.35; sum 1703.01 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:36:18,144 computation: 2.27; avg 2.28; sum 200.66; sleep:2.99 total compute+compress+sleep: 5.54
+2022-06-30 18:36:18,144 GPU running time: 2.27; avg: 2.28; sum 200.66
+2022-06-30 18:36:18,144 loss: 3.26 loss avg: 3.49
+
+2022-06-30 18:36:23,572 Send size 2.09 MB
+2022-06-30 18:36:27,293 Recv size 2.09 MB
+2022-06-30 18:36:27,436 Iteration 89 worker1
+2022-06-30 18:36:27,436 communication: 3.73; avg 19.18; sum 1706.74 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:36:27,437 computation: 2.27; avg 2.28; sum 202.93; sleep:2.98 total compute+compress+sleep: 5.54
+2022-06-30 18:36:27,437 GPU running time: 2.27; avg: 2.28; sum 202.93
+2022-06-30 18:36:27,437 loss: 2.99 loss avg: 3.49
+
+2022-06-30 18:36:32,847 Send size 2.09 MB
+2022-06-30 18:36:36,305 Recv size 2.09 MB
+2022-06-30 18:36:36,465 Iteration 90 worker1
+2022-06-30 18:36:36,465 communication: 3.47; avg 19.00; sum 1710.21 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:36:36,466 computation: 2.26; avg 2.28; sum 205.19; sleep:3.01 total compute+compress+sleep: 5.55
+2022-06-30 18:36:36,466 GPU running time: 2.26; avg: 2.28; sum 205.19
+2022-06-30 18:36:36,466 loss: 3.70 loss avg: 3.49
+
+2022-06-30 18:36:41,908 Send size 2.09 MB
+2022-06-30 18:36:45,105 Recv size 2.09 MB
+2022-06-30 18:36:45,267 Iteration 91 worker1
+2022-06-30 18:36:45,267 communication: 3.21; avg 18.83; sum 1713.42 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:36:45,267 computation: 2.27; avg 2.28; sum 207.46; sleep:2.97 total compute+compress+sleep: 5.51
+2022-06-30 18:36:45,267 GPU running time: 2.27; avg: 2.28; sum 207.46
+2022-06-30 18:36:45,268 loss: 2.91 loss avg: 3.48
+
+2022-06-30 18:36:50,667 Send size 2.09 MB
+2022-06-30 18:36:54,219 Recv size 2.09 MB
+2022-06-30 18:36:54,382 Iteration 92 worker1
+2022-06-30 18:36:54,382 communication: 3.56; avg 18.66; sum 1716.98 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:36:54,382 computation: 2.27; avg 2.28; sum 209.73; sleep:3.01 total compute+compress+sleep: 5.56
+2022-06-30 18:36:54,382 GPU running time: 2.27; avg: 2.28; sum 209.73
+2022-06-30 18:36:54,383 loss: 4.12 loss avg: 3.48
+
+2022-06-30 18:36:59,826 Send size 2.09 MB
+2022-06-30 18:37:04,723 Recv size 2.09 MB
+2022-06-30 18:37:04,889 Iteration 93 worker1
+2022-06-30 18:37:04,889 communication: 4.91; avg 18.52; sum 1721.89 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:37:04,889 computation: 2.26; avg 2.28; sum 211.99; sleep:3.02 total compute+compress+sleep: 5.56
+2022-06-30 18:37:04,889 GPU running time: 2.26; avg: 2.28; sum 211.99
+2022-06-30 18:37:04,889 loss: 1.63 loss avg: 3.47
+
+2022-06-30 18:37:10,335 Send size 2.09 MB
+2022-06-30 18:37:17,105 Recv size 2.09 MB
+2022-06-30 18:37:17,275 Iteration 94 worker1
+2022-06-30 18:37:17,275 communication: 6.78; avg 18.39; sum 1728.67 compress: 1.54E-01 decompress: 1.28E-01
+2022-06-30 18:37:17,275 computation: 2.26; avg 2.28; sum 214.25; sleep:3.01 total compute+compress+sleep: 5.56
+2022-06-30 18:37:17,275 GPU running time: 2.26; avg: 2.28; sum 214.25
+2022-06-30 18:37:17,276 loss: 2.29 loss avg: 3.47
+
+2022-06-30 18:37:22,711 Send size 2.09 MB
+2022-06-30 18:37:29,440 Recv size 2.09 MB
+2022-06-30 18:37:29,605 Iteration 95 worker1
+2022-06-30 18:37:29,605 communication: 6.74; avg 18.27; sum 1735.41 compress: 1.53E-01 decompress: 1.28E-01
+2022-06-30 18:37:29,605 computation: 2.26; avg 2.28; sum 216.51; sleep:3.02 total compute+compress+sleep: 5.56
+2022-06-30 18:37:29,605 GPU running time: 2.26; avg: 2.28; sum 216.51
+2022-06-30 18:37:29,606 loss: 3.45 loss avg: 3.47
+
+2022-06-30 18:37:35,074 Send size 2.09 MB
+2022-06-30 18:37:40,923 Recv size 2.09 MB
+2022-06-30 18:37:41,079 Iteration 96 worker1
+2022-06-30 18:37:41,079 communication: 5.86; avg 18.14; sum 1741.27 compress: 1.53E-01 decompress: 1.28E-01
+2022-06-30 18:37:41,080 computation: 2.28; avg 2.28; sum 218.79; sleep:2.99 total compute+compress+sleep: 5.55
+2022-06-30 18:37:41,080 GPU running time: 2.28; avg: 2.28; sum 218.79
+2022-06-30 18:37:41,080 loss: 1.71 loss avg: 3.46
+
+2022-06-30 18:37:46,496 Send size 2.09 MB
+2022-06-30 18:37:52,752 Recv size 2.09 MB
+2022-06-30 18:37:52,899 Iteration 97 worker1
+2022-06-30 18:37:52,899 communication: 6.27; avg 18.02; sum 1747.54 compress: 1.53E-01 decompress: 1.28E-01
+2022-06-30 18:37:52,900 computation: 2.26; avg 2.28; sum 221.05; sleep:3.03 total compute+compress+sleep: 5.57
+2022-06-30 18:37:52,900 GPU running time: 2.26; avg: 2.28; sum 221.05
+2022-06-30 18:37:52,900 loss: 3.12 loss avg: 3.46
+
+2022-06-30 18:37:58,360 Send size 2.09 MB
+2022-06-30 18:38:07,082 Recv size 2.09 MB
+2022-06-30 18:38:07,232 Iteration 98 worker1
+2022-06-30 18:38:07,232 communication: 8.73; avg 17.92; sum 1756.27 compress: 1.53E-01 decompress: 1.28E-01
+2022-06-30 18:38:07,232 computation: 2.26; avg 2.28; sum 223.31; sleep:3.01 total compute+compress+sleep: 5.56
+2022-06-30 18:38:07,232 GPU running time: 2.26; avg: 2.28; sum 223.31
+2022-06-30 18:38:07,233 loss: 4.04 loss avg: 3.46
+
+2022-06-30 18:38:12,680 Send size 2.09 MB
+2022-06-30 18:38:50,569 Recv size 2.09 MB
+2022-06-30 18:38:50,718 Iteration 99 worker1
+2022-06-30 18:38:50,718 communication: 37.90; avg 18.12; sum 1794.17 compress: 1.53E-01 decompress: 1.28E-01
+2022-06-30 18:38:50,718 computation: 2.27; avg 2.28; sum 225.58; sleep:2.99 total compute+compress+sleep: 5.55
+2022-06-30 18:38:50,718 GPU running time: 2.27; avg: 2.28; sum 225.58
+2022-06-30 18:38:50,719 loss: 3.49 loss avg: 3.46
+
+2022-06-30 18:38:56,169 Send size 2.09 MB
+2022-06-30 18:39:30,343 Recv size 2.09 MB
+2022-06-30 18:39:30,495 Iteration 100 worker1
+2022-06-30 18:39:30,495 communication: 34.19; avg 18.28; sum 1828.36 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:39:30,495 computation: 2.29; avg 2.28; sum 227.87; sleep:2.90 total compute+compress+sleep: 5.48
+2022-06-30 18:39:30,495 GPU running time: 2.29; avg: 2.28; sum 227.87
+2022-06-30 18:39:30,496 loss: 3.68 loss avg: 3.45
+
+2022-06-30 18:39:35,828 Send size 2.09 MB
+2022-06-30 18:39:55,207 Recv size 2.09 MB
+2022-06-30 18:39:55,356 Iteration 101 worker1
+2022-06-30 18:39:55,356 communication: 19.39; avg 18.29; sum 1847.75 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:39:55,356 computation: 2.26; avg 2.28; sum 230.13; sleep:3.02 total compute+compress+sleep: 5.56
+2022-06-30 18:39:55,356 GPU running time: 2.26; avg: 2.28; sum 230.13
+2022-06-30 18:39:55,357 loss: 3.59 loss avg: 3.45
+
+2022-06-30 18:40:00,812 Send size 2.09 MB
+2022-06-30 18:40:20,081 Recv size 2.09 MB
+2022-06-30 18:40:20,234 Iteration 102 worker1
+2022-06-30 18:40:20,234 communication: 19.28; avg 18.30; sum 1867.03 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:40:20,234 computation: 2.27; avg 2.28; sum 232.40; sleep:3.01 total compute+compress+sleep: 5.57
+2022-06-30 18:40:20,234 GPU running time: 2.27; avg: 2.28; sum 232.40
+2022-06-30 18:40:20,235 loss: 1.86 loss avg: 3.44
+
+2022-06-30 18:40:25,676 Send size 2.09 MB
+2022-06-30 18:40:44,333 Recv size 2.09 MB
+2022-06-30 18:40:44,477 Iteration 103 worker1
+2022-06-30 18:40:44,477 communication: 18.67; avg 18.31; sum 1885.70 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:40:44,477 computation: 2.27; avg 2.28; sum 234.67; sleep:3.02 total compute+compress+sleep: 5.58
+2022-06-30 18:40:44,477 GPU running time: 2.27; avg: 2.28; sum 234.67
+2022-06-30 18:40:44,478 loss: 4.40 loss avg: 3.44
+
+2022-06-30 18:40:49,926 Send size 2.09 MB
+2022-06-30 18:41:08,225 Recv size 2.09 MB
+2022-06-30 18:41:08,396 Iteration 104 worker1
+2022-06-30 18:41:08,396 communication: 18.31; avg 18.31; sum 1904.01 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:41:08,396 computation: 2.26; avg 2.28; sum 236.93; sleep:3.06 total compute+compress+sleep: 5.61
+2022-06-30 18:41:08,396 GPU running time: 2.26; avg: 2.28; sum 236.93
+2022-06-30 18:41:08,397 loss: 2.51 loss avg: 3.44
+
+2022-06-30 18:41:13,903 Send size 2.09 MB
+2022-06-30 18:41:32,051 Recv size 2.09 MB
+2022-06-30 18:41:32,216 Iteration 105 worker1
+2022-06-30 18:41:32,216 communication: 18.16; avg 18.31; sum 1922.17 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:41:32,216 computation: 2.28; avg 2.28; sum 239.21; sleep:3.02 total compute+compress+sleep: 5.59
+2022-06-30 18:41:32,216 GPU running time: 2.28; avg: 2.28; sum 239.21
+2022-06-30 18:41:32,216 loss: 3.93 loss avg: 3.44
+
+2022-06-30 18:41:37,667 Send size 2.09 MB
+2022-06-30 18:42:04,080 Recv size 2.09 MB
+2022-06-30 18:42:04,255 Iteration 106 worker1
+2022-06-30 18:42:04,255 communication: 26.42; avg 18.38; sum 1948.59 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:42:04,256 computation: 2.26; avg 2.28; sum 241.47; sleep:3.05 total compute+compress+sleep: 5.60
+2022-06-30 18:42:04,256 GPU running time: 2.26; avg: 2.28; sum 241.47
+2022-06-30 18:42:04,256 loss: 2.68 loss avg: 3.44
+
+2022-06-30 18:42:09,745 Send size 2.09 MB
+2022-06-30 18:43:46,074 Recv size 2.09 MB
+2022-06-30 18:43:46,227 Iteration 107 worker1
+2022-06-30 18:43:46,227 communication: 96.34; avg 19.11; sum 2044.93 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:43:46,227 computation: 2.28; avg 2.28; sum 243.75; sleep:3.00 total compute+compress+sleep: 5.56
+2022-06-30 18:43:46,227 GPU running time: 2.28; avg: 2.28; sum 243.75
+2022-06-30 18:43:46,228 loss: 4.16 loss avg: 3.44
+
+2022-06-30 18:43:51,661 Send size 2.09 MB
+2022-06-30 18:45:01,960 Recv size 2.09 MB
+2022-06-30 18:45:02,112 Iteration 108 worker1
+2022-06-30 18:45:02,112 communication: 70.31; avg 19.59; sum 2115.24 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:45:02,112 computation: 2.27; avg 2.28; sum 246.02; sleep:3.03 total compute+compress+sleep: 5.59
+2022-06-30 18:45:02,112 GPU running time: 2.27; avg: 2.28; sum 246.02
+2022-06-30 18:45:02,113 loss: 2.07 loss avg: 3.43
+
+2022-06-30 18:45:07,591 Send size 2.09 MB
+2022-06-30 18:45:48,687 Recv size 2.09 MB
+2022-06-30 18:45:48,834 Iteration 109 worker1
+2022-06-30 18:45:48,834 communication: 41.11; avg 19.78; sum 2156.35 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:45:48,834 computation: 2.28; avg 2.28; sum 248.30; sleep:3.00 total compute+compress+sleep: 5.55
+2022-06-30 18:45:48,834 GPU running time: 2.28; avg: 2.28; sum 248.30
+2022-06-30 18:45:48,834 loss: 2.81 loss avg: 3.43
+
+2022-06-30 18:45:54,276 Send size 2.09 MB
+2022-06-30 18:46:10,972 Recv size 2.09 MB
+2022-06-30 18:46:11,120 Iteration 110 worker1
+2022-06-30 18:46:11,120 communication: 16.71; avg 19.76; sum 2173.06 compress: 1.53E-01 decompress: 1.29E-01
+2022-06-30 18:46:11,120 computation: 2.28; avg 2.28; sum 250.58; sleep:3.02 total compute+compress+sleep: 5.58
+2022-06-30 18:46:11,120 GPU running time: 2.28; avg: 2.28; sum 250.58
+2022-06-30 18:46:11,121 loss: 3.67 loss avg: 3.43
+
+2022-06-30 18:46:16,607 Send size 2.09 MB
+2022-06-30 18:46:30,610 Recv size 2.09 MB
+2022-06-30 18:46:30,759 Iteration 111 worker1
+2022-06-30 18:46:30,759 communication: 14.01; avg 19.70; sum 2187.07 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:46:30,759 computation: 2.27; avg 2.28; sum 252.85; sleep:3.01 total compute+compress+sleep: 5.60
+2022-06-30 18:46:30,759 GPU running time: 2.27; avg: 2.28; sum 252.85
+2022-06-30 18:46:30,760 loss: 2.99 loss avg: 3.43
+
+2022-06-30 18:46:36,212 Send size 2.09 MB
+2022-06-30 18:46:50,366 Recv size 2.09 MB
+2022-06-30 18:46:50,513 Iteration 112 worker1
+2022-06-30 18:46:50,513 communication: 14.16; avg 19.65; sum 2201.23 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:46:50,513 computation: 2.27; avg 2.28; sum 255.12; sleep:3.06 total compute+compress+sleep: 5.61
+2022-06-30 18:46:50,513 GPU running time: 2.27; avg: 2.28; sum 255.12
+2022-06-30 18:46:50,514 loss: 3.70 loss avg: 3.43
+
+2022-06-30 18:46:56,008 Send size 2.09 MB
+2022-06-30 18:47:11,547 Recv size 2.09 MB
+2022-06-30 18:47:11,717 Iteration 113 worker1
+2022-06-30 18:47:11,717 communication: 15.55; avg 19.62; sum 2216.78 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:47:11,717 computation: 2.26; avg 2.28; sum 257.38; sleep:3.05 total compute+compress+sleep: 5.60
+2022-06-30 18:47:11,717 GPU running time: 2.26; avg: 2.28; sum 257.38
+2022-06-30 18:47:11,717 loss: 2.80 loss avg: 3.42
+
+2022-06-30 18:47:17,198 Send size 2.09 MB
+2022-06-30 18:47:32,402 Recv size 2.09 MB
+2022-06-30 18:47:32,576 Iteration 114 worker1
+2022-06-30 18:47:32,576 communication: 15.21; avg 19.58; sum 2231.99 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:47:32,576 computation: 2.27; avg 2.28; sum 259.65; sleep:3.03 total compute+compress+sleep: 5.58
+2022-06-30 18:47:32,576 GPU running time: 2.27; avg: 2.28; sum 259.65
+2022-06-30 18:47:32,577 loss: 3.34 loss avg: 3.42
+
+2022-06-30 18:47:38,043 Send size 2.09 MB
+2022-06-30 18:47:53,598 Recv size 2.09 MB
+2022-06-30 18:47:53,747 Iteration 115 worker1
+2022-06-30 18:47:53,747 communication: 15.57; avg 19.54; sum 2247.56 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:47:53,747 computation: 2.27; avg 2.28; sum 261.92; sleep:3.01 total compute+compress+sleep: 5.56
+2022-06-30 18:47:53,747 GPU running time: 2.27; avg: 2.28; sum 261.92
+2022-06-30 18:47:53,748 loss: 3.64 loss avg: 3.42
+
+2022-06-30 18:47:59,210 Send size 2.09 MB
+2022-06-30 18:48:13,934 Recv size 2.09 MB
+2022-06-30 18:48:14,082 Iteration 116 worker1
+2022-06-30 18:48:14,082 communication: 14.73; avg 19.50; sum 2262.29 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:48:14,082 computation: 2.28; avg 2.28; sum 264.20; sleep:2.98 total compute+compress+sleep: 5.54
+2022-06-30 18:48:14,082 GPU running time: 2.28; avg: 2.28; sum 264.20
+2022-06-30 18:48:14,083 loss: 3.02 loss avg: 3.41
+
+2022-06-30 18:48:19,494 Send size 2.09 MB
+2022-06-30 18:48:33,367 Recv size 2.09 MB
+2022-06-30 18:48:33,511 Iteration 117 worker1
+2022-06-30 18:48:33,511 communication: 13.88; avg 19.45; sum 2276.17 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:48:33,511 computation: 2.26; avg 2.28; sum 266.46; sleep:3.01 total compute+compress+sleep: 5.55
+2022-06-30 18:48:33,511 GPU running time: 2.26; avg: 2.28; sum 266.46
+2022-06-30 18:48:33,512 loss: 2.60 loss avg: 3.40
+
+2022-06-30 18:48:38,953 Send size 2.09 MB
+2022-06-30 18:48:52,400 Recv size 2.09 MB
+2022-06-30 18:48:52,545 Iteration 118 worker1
+2022-06-30 18:48:52,545 communication: 13.46; avg 19.40; sum 2289.63 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:48:52,546 computation: 2.27; avg 2.28; sum 268.73; sleep:2.99 total compute+compress+sleep: 5.54
+2022-06-30 18:48:52,546 GPU running time: 2.27; avg: 2.28; sum 268.73
+2022-06-30 18:48:52,546 loss: 3.12 loss avg: 3.40
+
+2022-06-30 18:48:57,968 Send size 2.09 MB
+2022-06-30 18:49:10,717 Recv size 2.09 MB
+2022-06-30 18:49:10,884 Iteration 119 worker1
+2022-06-30 18:49:10,884 communication: 12.76; avg 19.35; sum 2302.39 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:49:10,884 computation: 2.26; avg 2.28; sum 270.99; sleep:3.02 total compute+compress+sleep: 5.57
+2022-06-30 18:49:10,884 GPU running time: 2.26; avg: 2.28; sum 270.99
+2022-06-30 18:49:10,884 loss: 3.77 loss avg: 3.41
+
+2022-06-30 18:49:16,344 Send size 2.09 MB
+2022-06-30 18:49:28,989 Recv size 2.09 MB
+2022-06-30 18:49:29,132 Iteration 120 worker1
+2022-06-30 18:49:29,132 communication: 12.66; avg 19.29; sum 2315.05 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:49:29,132 computation: 2.27; avg 2.28; sum 273.26; sleep:3.01 total compute+compress+sleep: 5.56
+2022-06-30 18:49:29,132 GPU running time: 2.27; avg: 2.28; sum 273.26
+2022-06-30 18:49:29,133 loss: 3.10 loss avg: 3.41
+
+2022-06-30 18:49:34,581 Send size 2.09 MB
+2022-06-30 18:49:46,676 Recv size 2.09 MB
+2022-06-30 18:49:46,823 Iteration 121 worker1
+2022-06-30 18:49:46,823 communication: 12.11; avg 19.23; sum 2327.16 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:49:46,823 computation: 2.27; avg 2.28; sum 275.53; sleep:3.02 total compute+compress+sleep: 5.57
+2022-06-30 18:49:46,823 GPU running time: 2.27; avg: 2.28; sum 275.53
+2022-06-30 18:49:46,824 loss: 2.91 loss avg: 3.41
+
+2022-06-30 18:49:52,275 Send size 2.09 MB
+2022-06-30 18:50:03,470 Recv size 2.09 MB
+2022-06-30 18:50:03,618 Iteration 122 worker1
+2022-06-30 18:50:03,618 communication: 11.20; avg 19.17; sum 2338.36 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:50:03,618 computation: 2.27; avg 2.28; sum 277.80; sleep:3.02 total compute+compress+sleep: 5.57
+2022-06-30 18:50:03,618 GPU running time: 2.27; avg: 2.28; sum 277.80
+2022-06-30 18:50:03,619 loss: 3.40 loss avg: 3.40
+
+2022-06-30 18:50:09,090 Send size 2.09 MB
+2022-06-30 18:50:20,300 Recv size 2.09 MB
+2022-06-30 18:50:20,448 Iteration 123 worker1
+2022-06-30 18:50:20,448 communication: 11.22; avg 19.10; sum 2349.58 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:50:20,448 computation: 2.28; avg 2.28; sum 280.08; sleep:3.02 total compute+compress+sleep: 5.58
+2022-06-30 18:50:20,448 GPU running time: 2.28; avg: 2.28; sum 280.08
+2022-06-30 18:50:20,449 loss: 3.04 loss avg: 3.40
+
+2022-06-30 18:50:25,905 Send size 2.09 MB
+2022-06-30 18:50:37,030 Recv size 2.09 MB
+2022-06-30 18:50:37,178 Iteration 124 worker1
+2022-06-30 18:50:37,178 communication: 11.14; avg 19.04; sum 2360.72 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:50:37,178 computation: 2.27; avg 2.28; sum 282.35; sleep:3.02 total compute+compress+sleep: 5.57
+2022-06-30 18:50:37,178 GPU running time: 2.27; avg: 2.28; sum 282.35
+2022-06-30 18:50:37,179 loss: 4.36 loss avg: 3.40
+
+2022-06-30 18:50:42,624 Send size 2.09 MB
+2022-06-30 18:50:53,816 Recv size 2.09 MB
+2022-06-30 18:50:53,963 Iteration 125 worker1
+2022-06-30 18:50:53,963 communication: 11.20; avg 18.98; sum 2371.92 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:50:53,963 computation: 2.26; avg 2.28; sum 284.61; sleep:3.01 total compute+compress+sleep: 5.56
+2022-06-30 18:50:53,963 GPU running time: 2.26; avg: 2.28; sum 284.61
+2022-06-30 18:50:53,963 loss: 3.74 loss avg: 3.40
+
+2022-06-30 18:50:59,409 Send size 2.09 MB
+2022-06-30 18:51:10,587 Recv size 2.09 MB
+2022-06-30 18:51:10,733 Iteration 126 worker1
+2022-06-30 18:51:10,733 communication: 11.19; avg 18.91; sum 2383.11 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:51:10,733 computation: 2.27; avg 2.28; sum 286.88; sleep:3.02 total compute+compress+sleep: 5.56
+2022-06-30 18:51:10,733 GPU running time: 2.27; avg: 2.28; sum 286.88
+2022-06-30 18:51:10,734 loss: 3.84 loss avg: 3.40
+
+2022-06-30 18:51:16,181 Send size 2.09 MB
+2022-06-30 18:51:27,079 Recv size 2.09 MB
+2022-06-30 18:51:27,228 Iteration 127 worker1
+2022-06-30 18:51:27,228 communication: 10.91; avg 18.85; sum 2394.02 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:51:27,228 computation: 2.26; avg 2.28; sum 289.14; sleep:3.02 total compute+compress+sleep: 5.56
+2022-06-30 18:51:27,228 GPU running time: 2.26; avg: 2.28; sum 289.14
+2022-06-30 18:51:27,228 loss: 3.44 loss avg: 3.40
+
+2022-06-30 18:51:32,677 Send size 2.09 MB
+2022-06-30 18:51:43,427 Recv size 2.09 MB
+2022-06-30 18:51:43,572 Iteration 128 worker1
+2022-06-30 18:51:43,572 communication: 10.76; avg 18.79; sum 2404.78 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:51:43,573 computation: 2.26; avg 2.28; sum 291.40; sleep:3.00 total compute+compress+sleep: 5.54
+2022-06-30 18:51:43,573 GPU running time: 2.26; avg: 2.28; sum 291.40
+2022-06-30 18:51:43,573 loss: 2.38 loss avg: 3.39
+
+2022-06-30 18:51:48,997 Send size 2.09 MB
+2022-06-30 18:51:58,705 Recv size 2.09 MB
+2022-06-30 18:51:58,851 Iteration 129 worker1
+2022-06-30 18:51:58,851 communication: 9.72; avg 18.72; sum 2414.50 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:51:58,851 computation: 2.26; avg 2.28; sum 293.66; sleep:3.01 total compute+compress+sleep: 5.55
+2022-06-30 18:51:58,851 GPU running time: 2.26; avg: 2.28; sum 293.66
+2022-06-30 18:51:58,852 loss: 2.03 loss avg: 3.39
+
+2022-06-30 18:52:04,290 Send size 2.09 MB
+2022-06-30 18:52:07,486 Recv size 2.09 MB
+2022-06-30 18:52:07,657 Iteration 130 worker1
+2022-06-30 18:52:07,657 communication: 3.21; avg 18.60; sum 2417.71 compress: 1.54E-01 decompress: 1.29E-01
+2022-06-30 18:52:07,657 computation: 2.27; avg 2.28; sum 295.93; sleep:2.96 total compute+compress+sleep: 5.51
+2022-06-30 18:52:07,657 GPU running time: 2.27; avg: 2.28; sum 295.93
+2022-06-30 18:52:07,657 loss: 2.43 loss avg: 3.39
+
+2022-06-30 18:52:13,046 Send size 2.09 MB
